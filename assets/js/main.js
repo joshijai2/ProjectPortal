@@ -6,27 +6,64 @@
 $('.studentLogin').click(function (e) {
   e.stopPropagation();
   $('.student.popup').fadeIn('slow');
-  $('body').append('<div class="pageOverlay"></div>')
+  $('body').append('<div class="pageOverlay"></div>').css('overflow', 'hidden');
+});
+
+$('.facultyLogin').click(function (e) {
+  e.stopPropagation();
+  $('.faculty.popup').fadeIn('slow');
+  $('body').append('<div class="pageOverlay"></div>').css('overflow', 'hidden');
 });
 
 // Close button
 $('.closeButton').on('click', function () {
-  $('.student.popup').fadeOut();
+  $('body').css('overflow', 'auto');
+  if($('.student.popup').css('display')!='none')
+    $('.student.popup').fadeOut();
+  else if($('.faculty.popup').css('display')!='none')
+    $('.faculty.popup').fadeOut();
   $('.pageOverlay').fadeOut();
 });
 
+//Close pn click outside
+$('body').click(function() {
+  $('body').css('overflow', 'auto');
+  if($('.student.popup').css('display')!='none')
+    $('.student.popup').fadeOut();
+  else if($('.faculty.popup').css('display')!='none')
+    $('.faculty.popup').fadeOut();
+  $('.pageOverlay').fadeOut();
+});
+
+$('.popup').click(function(e) {
+  e.stopPropagation();
+});
+
 // transitions
-const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
+const studentSignUp = document.getElementById('studentSignUp');
+const studentSignIn = document.getElementById('studentSignIn');
+const studentContainer = document.getElementById('studentContainer');
 
-signUpButton.addEventListener('click', () => {
-  container.classList.add("right-panel-active");
+studentSignUp.addEventListener('click', () => {
+  studentContainer.classList.add("right-panel-active");
 });
 
-signInButton.addEventListener('click', () => {
-  container.classList.remove("right-panel-active");
+studentSignIn.addEventListener('click', () => {
+  studentContainer.classList.remove("right-panel-active");
 });
+
+const facultySignUp = document.getElementById('facultySignUp');
+const facultySignIn = document.getElementById('facultySignIn');
+const facultyContainer = document.getElementById('facultyContainer');
+
+facultySignUp.addEventListener('click', () => {
+  facultyContainer.classList.add("right-panel-active");
+});
+
+facultySignIn.addEventListener('click', () => {
+  facultyContainer.classList.remove("right-panel-active");
+});
+
 // ----------------------------------------------------
 (function () {
   "use strict";
