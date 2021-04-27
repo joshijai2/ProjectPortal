@@ -40,29 +40,29 @@ $('.popup').click(function (e) {
 });
 
 // login signup transitions---------------------------------------------
-const studentSignUp = document.getElementById('studentSignUp');
-const studentSignIn = document.getElementById('studentSignIn');
-const studentContainer = document.getElementById('studentContainer');
+// const studentSignUp = document.getElementById('studentSignUp');
+// const studentSignIn = document.getElementById('studentSignIn');
+// const studentContainer = document.getElementById('studentContainer');
 
-studentSignUp.addEventListener('click', () => {
-  studentContainer.classList.add("right-panel-active");
-});
+// studentSignUp.addEventListener('click', () => {
+//   studentContainer.classList.add("right-panel-active");
+// });
 
-studentSignIn.addEventListener('click', () => {
-  studentContainer.classList.remove("right-panel-active");
-});
+// studentSignIn.addEventListener('click', () => {
+//   studentContainer.classList.remove("right-panel-active");
+// });
 
-const facultySignUp = document.getElementById('facultySignUp');
-const facultySignIn = document.getElementById('facultySignIn');
-const facultyContainer = document.getElementById('facultyContainer');
+// const facultySignUp = document.getElementById('facultySignUp');
+// const facultySignIn = document.getElementById('facultySignIn');
+// const facultyContainer = document.getElementById('facultyContainer');
 
-facultySignUp.addEventListener('click', () => {
-  facultyContainer.classList.add("right-panel-active");
-});
+// facultySignUp.addEventListener('click', () => {
+//   facultyContainer.classList.add("right-panel-active");
+// });
 
-facultySignIn.addEventListener('click', () => {
-  facultyContainer.classList.remove("right-panel-active");
-});
+// facultySignIn.addEventListener('click', () => {
+//   facultyContainer.classList.remove("right-panel-active");
+// });
 
 // ----------------------------------------------------
 (function () {
