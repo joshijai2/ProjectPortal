@@ -565,11 +565,11 @@ section {
   background: #6776f4;
   background: -webkit-linear-gradient(to right, #4154f1, #6776f4);
   background: linear-gradient(to right, #4154f1, #6776f4);
+  cursor: pointer;
 }
 
 .auth .auth-box:hover h3,
-.auth .auth-box:hover p,
-.auth .auth-box:hover .read-more {
+.auth .auth-box:hover p {
   color: #fff;
 }
 
