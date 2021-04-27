@@ -248,7 +248,7 @@ section {
   color: #4154f1;
 }
 
-.navbar .getstarted {
+.navbar .btn-nav {
   background: #4154f1;
   padding: 8px 20px;
   margin-left: 30px;
@@ -256,7 +256,7 @@ section {
   color: #fff;
 }
 
-.navbar .getstarted:hover {
+.navbar .btn-nav:hover {
   color: #fff;
   background: #5969f3;
 }
@@ -359,7 +359,7 @@ section {
   right: 0;
   left: 0;
   bottom: 0;
-  background: rgba(1, 22, 61, 0.9);
+  background: rgba(1, 29, 70, 0.9);
   transition: 0.3s;
 }
 
@@ -389,13 +389,8 @@ section {
   color: #012970;
 }
 
-.navbar-mobile a:hover,
-.navbar-mobile .active,
-.navbar-mobile li:hover > a {
-  color: #4154f1;
-}
 
-.navbar-mobile .getstarted {
+.navbar-mobile .btn-nav {
   margin: 15px;
 }
 
@@ -558,27 +553,28 @@ section {
 }
 
 .auth .auth-box.blue {
-  border-bottom: 3px solid #2db6fa;
+  border-bottom: 3px solid #4154f1;
 }
 
 .auth .auth-box.blue .icon {
-  color: #2db6fa;
-  background: #dbf3fe;
+  color: #fff;
+  background: #8894f6;
 }
 
 .auth .auth-box.blue:hover {
-  background: #6df;
-  background: -webkit-linear-gradient(to right, #2db6fa, #6df);
-  background: linear-gradient(to right, #2db6fa, #6df);
+  background: #6776f4;
+  background: -webkit-linear-gradient(to right, #4154f1, #6776f4);
+  background: linear-gradient(to right, #4154f1, #6776f4);
+  cursor: pointer;
 }
 
 .auth .auth-box:hover h3,
-.auth .auth-box:hover p,
-.auth .auth-box:hover .read-more {
+.auth .auth-box:hover p {
   color: #fff;
 }
 
 .auth .auth-box:hover .icon {
+  color: #4154f1;
   background: #fff;
 }
 
@@ -648,8 +644,8 @@ section {
 
 .popup button {
   border-radius: 20px;
-  border: 1px solid #2db6fa;
-  background-color: #2db6fa;
+  border: 1px solid #4154f1;
+  background-color: #4154f1;
   color: #ffffff;
   font-size: 12px;
   font-weight: bold;
@@ -763,9 +759,9 @@ section {
 }
 
 .popup .overlay {
-  background: #6df;
-  background: -webkit-linear-gradient(to right, #2db6fa, #6df);
-  background: linear-gradient(to right, #2db6fa, #6df);
+  background: #6776f4;
+  background: -webkit-linear-gradient(to right, #4154f1, #6776f4);
+  background: linear-gradient(to right, #4154f1, #6776f4);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
