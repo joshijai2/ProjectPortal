@@ -1,113 +1,114 @@
-<?php
-use phpformbuilder\Form;
-use phpformbuilder\Validator\Validator;
 
-/* =============================================
-    start session and include form class
-============================================= */
-
-session_start();
-include_once rtrim($_SERVER['DOCUMENT_ROOT'], DIRECTORY_SEPARATOR) . '/phpformbuilder/Form.php';
-
-/* =============================================
-    validation if posted
-============================================= */
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && Form::testToken('fg-form') === true) {
-    // create validator & auto-validate required fields
-    $validator = Form::validate('fg-form');
-
-    // check for errors
-    if ($validator->hasErrors()) {
-        $_SESSION['errors']['fg-form'] = $validator->getAllErrors();
-    } else {
-        // clear the form
-        Form::clear('fg-form');
-    }
-}
-
-/* ==================================================
-    The Form
- ================================================== */
-
-$form = new Form('fg-form', 'horizontal', 'novalidate, data-fv-no-icon=true', 'bs4');
-// $form->setMode('development');
-$form->addInput('text', 'input-1', '', 'Project Title/Name', 'placeholder=Name of your Project,required=required');
-$form->setCols(2, 4);
-$form->groupInputs('input-2', 'input-3');
-$form->addInput('date', 'input-2', '', 'Start Date', 'required=required');
-$form->addInput('date', 'input-3', '', 'End Date', 'required=required');
-$form->setCols(4, 8);
-$form->addInput('file', 'input-11', '', 'File Upload', 'required=required');
-$form->addIcon( 'input-5', '<i class="fas fa-file-code" aria-hidden="true"></i>', 'after');
-$form->addInput('url', 'input-5', '', 'Link', 'placeholder=Insert your link here');
-$form->addInput('text', 'input-6', '', 'Student Name', 'required=required,placeholder=Insert all the author\'s name separated by a comma');
-$form->addInput('text', 'input-11', '', 'Registration Number', 'required=required,placeholder=Insert your Registration Number separated by a comma');
-$form->addInput('text', 'input-7', '', 'Faculty Name', 'placeholder=Insert faculty\'s name ,required=required');
-$form->addInput('text', 'input-9', '', 'Course Name', 'required=required');
-$form->setCols(2, 4);
-$form->groupInputs('input-8', 'input-10');
-$form->addInput('text', 'input-8', '', 'Course Code', 'required=required');
-$form->addInput('number', 'input-10', '', 'Project Duration', 'placeholder=Insert Duration in Months,required=required');
-$form->setCols(4, 8);
-$form->addTextarea('textarea-1', '', 'Description', 'required=required,placeholder=Tell us about your project here');
-$form->addPlugin('formvalidation', '#fg-form');
-?>
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Php Form Builder - Bootstrap 4 form</title>
-    <meta name="description" content="">
-
-    <!-- Bootstrap 4 CSS -->
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-    <!-- Font awesome icons -->
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-    <!-- fontawesome5 -->
-    
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css">
-    
-    <?php $form->printIncludes('css'); ?>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-
-    <h1 class="text-center">Php Form Builder - Bootstrap 4 form</h1>
-
-    <div class="container">
-
-        <div class="row justify-content-center">
-
-            <div class="col-md-11 col-lg-10">
-                <?php
-                $form->render();
-                ?>
-
+<form>
+    <div class="form-group row">
+        <label for="text" class="col-4 col-form-label">Project Title/Name</label>
+        <div class="col-8">
+            <div class="input-group">
+                <input id="text" name="text" placeholder="Insert your name here" type="text" required="required"
+                    class="form-control">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <i class="fa fa-address-card"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <!-- jQuery -->
-
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-
-    <!-- Bootstrap 4 JavaScript -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <?php
-    $form->printIncludes('js');
-    $form->printJsCode();
-    ?>
-
+    <div class="form-group row">
+        <label for="sdate" class="col-4 col-form-label">Start Date</label>
+        <div class="col-8">
+            <input id="sdate" name="sdate" placeholder="Start Date" type="text" class="form-control"
+                required="required">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="fdate" class="col-4 col-form-label">End Date</label>
+        <div class="col-8">
+            <input id="fdate" name="fdate" placeholder="End Date" type="text" class="form-control" required="required">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="file" class="col-4 col-form-label">File Upload</label>
+        <div class="col-8">
+            <div class="input-group">
+                <input id="file" name="file" placeholder="Upload your project files here" type="file"
+                    required="required" >
+                
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="link" class="col-4 col-form-label">Link</label>
+        <div class="col-8">
+            <div class="input-group">
+                <input id="link" name="link" placeholder="Insert your link here" type="text" class="form-control">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <i class="fa fa-paperclip"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="sname" class="col-4 col-form-label">Student Name</label>
+        <div class="col-8">
+            <input id="sname" name="sname" type="text" class="form-control" required="required">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="rno" class="col-4 col-form-label">Registration Number</label>
+        <div class="col-8">
+            <input id="rno" name="rno" type="text" class="form-control" required="required">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="faculty" class="col-4 col-form-label">Faculty Name</label>
+        <div class="col-8">
+            <input id="faculty" name="faculty" placeholder="Enter name of faculty here" type="text" class="form-control"
+                required="required">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="code" class="col-4 col-form-label">Course Code</label>
+        <div class="col-8">
+            <input id="code" name="code" placeholder="Insert Course Code here" type="text" class="form-control"
+                required="required">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="cname" class="col-4 col-form-label">Course Name</label>
+        <div class="col-8">
+            <input id="cname" name="cname" placeholder="Insert the name of your course" type="text" class="form-control"
+                required="required">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="duration" class="col-4 col-form-label">Project Duration</label>
+        <div class="col-8">
+            <input id="duration" name="duration" placeholder="Enter Project Duration in Months" type="text"
+                class="form-control" required="required">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="description" class="col-4 col-form-label">Description</label>
+        <div class="col-8">
+            <textarea id="description" name="description" cols="40" rows="8" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="offset-4 col-8">
+            <button name="submit" type="submit" class="btn btn-primary">Add Project!</button>
+        </div>
+    </div>
+</form>
 </body>
-
 </html>
