@@ -80,6 +80,7 @@
 
   </section>
   <!-- End Home-top -->
+
   <div id="popup">
     <div class="student popup">
       <div class="container" id="studentContainer">
@@ -87,33 +88,24 @@
           <div class="closeButton">
             <i class="fa fa-times" aria-hidden="true"></i>
           </div>
-          <form action="#">
+          <form method="POST">
             <h1>Create Account</h1>
-            <div class="social-container">
-              <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-              <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <span>or use your email for registration</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Sign Up</button>
+            <input required type="text" placeholder="Name" />
+            <input required type="text" placeholder="Registration No." />
+            <input required type="email" placeholder="Email" />
+            <input required type="password" placeholder="Password" />
+            <button type="submit" onClick="studentSignup()">Sign Up</button>
           </form>
         </div>
         <div class="form-container sign-in-container">
-          <form action="#">
+          <form method="POST">
             <h1>Sign in</h1>
-            <div class="social-container">
-              <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-              <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+
             <span>or use your account</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input required type="text" placeholder="Registration No." />
+            <input required type="password" placeholder="Password" />
             <a href="#">Forgot your password?</a>
-            <button>Sign In</button>
+            <button type="submit" onClick="studentSignin()">Sign In</button>
           </form>
         </div>
         <div class="overlay-container">
@@ -138,36 +130,29 @@
     <div class="faculty popup">
       <div class="container" id="facultyContainer">
         <div class="form-container sign-up-container">
+          
           <div class="closeButton">
             <i class="fa fa-times" aria-hidden="true"></i>
           </div>
-          <form action="#">
+
+          <form name="facultySignup" method="POST">
             <h1>Create Account</h1>
-            <div class="social-container">
-              <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-              <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <span>or use your email for registration</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Sign Up</button>
+            <input name="name" required type="text" placeholder="Name" />
+            <input name="uid" required type="text" placeholder="Faculty ID" />
+            <input name="email" required type="email" placeholder="Email" />
+            <input name="pass" required type="password" placeholder="Password" />
+            <button type="submit" onClick="facultySignup()">Sign Up</button>
           </form>
+
         </div>
         <div class="form-container sign-in-container">
-          <form action="#">
+          <form method="POST">
             <h1>Sign in</h1>
-            <div class="social-container">
-              <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-              <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-            </div>
             <span>or use your account</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input name="uid" required type="text" placeholder="Faculty ID" />
+            <input name="pass" required type="password" placeholder="Password" />
             <a href="#">Forgot your password?</a>
-            <button>Sign In</button>
+            <button type="submit" onClick="facultySignin()">Sign In</button>
           </form>
         </div>
         <div class="overlay-container">
@@ -190,6 +175,7 @@
       </div>
     </div>
   </div>
+
   <main id="main">
     <!-- ======= Auth Section ======= -->
     <section id="auth" class="auth">
@@ -202,7 +188,7 @@
         <div class="row gy-4">
 
           <div class="col-lg-6 col-md-12" data-aos="fade-up" data-aos-delay="200">
-            <a class='studentLogin'>
+            <a class='studentFade'>
               <div class="auth-box blue">
                 <i class="ri-discuss-line icon"></i>
                 <h3>Student</h3>
@@ -212,7 +198,7 @@
           </div>
 
           <div class="col-lg-6 col-md-12" data-aos="fade-up" data-aos-delay="200">
-            <a class='facultyLogin'>
+            <a class='facultyFade'>
               <div class="auth-box blue">
                 <i class="ri-discuss-line icon"></i>
                 <h3>Faculty</h3>
@@ -310,7 +296,7 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" class="php-email-form">
+            <form method="post" class="php-email-form">
               <div class="row gy-4">
 
                 <div class="col-md-6">
@@ -366,8 +352,9 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
-  <!-- Main JS File -->
+  <!-- JS Files -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
 
 </body>
 

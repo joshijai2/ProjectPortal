@@ -520,6 +520,104 @@ section {
 }
 
 /*--------------------------------------------------------------
+# addnew-top Section
+--------------------------------------------------------------*/
+
+.addnew-top {
+  width: 100%;
+  height: 100vh;
+  background: url(../img/home-top-bg.png) top center no-repeat;
+  background-size: cover;
+}
+
+.addnew-top h1 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+  color: #012970;
+}
+
+.addnew-top h2 {
+  color: #444444;
+  margin: 15px 0 0 0;
+  font-size: 26px;
+}
+
+.addnew-top .btn-get-started {
+  margin-top: 30px;
+  line-height: 0;
+  padding: 15px 40px;
+  border-radius: 4px;
+  transition: 0.5s;
+  color: #fff;
+  background: #4154f1;
+  box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+}
+
+.addnew-top .btn-get-started span {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.addnew-top .btn-get-started i {
+  margin-left: 5px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.addnew-top .btn-get-started:hover i {
+  transform: translateX(5px);
+}
+
+.addnew-top .addnew-top-img {
+  text-align: right;
+}
+
+.addnew-top .container{
+  border: 5px solid #8894f6;
+  border-radius: 10px;
+  box-shadow: 2.5px 2.5px 10px 2.5px #8894f6;
+  padding: 25px;
+}
+
+@media (min-width: 1024px) {
+  .addnew-top {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 991px) {
+  .addnew-top {
+    height: auto;
+    padding: 120px 0 60px 0;
+  }
+  .addnew-top .addnew-top-img {
+    text-align: center;
+    margin-top: 80px;
+  }
+  .addnew-top .addnew-top-img img {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .addnew-top {
+    text-align: center;
+  }
+  .addnew-top h1 {
+    font-size: 32px;
+  }
+  .addnew-top h2 {
+    font-size: 24px;
+  }
+  .addnew-top .addnew-top-img img {
+    width: 100%;
+  }
+}
+
+/*--------------------------------------------------------------
 # Index Page
 --------------------------------------------------------------*/
 
@@ -608,6 +706,7 @@ section {
 }
 
 .popup .closeButton{
+  cursor: pointer;
   z-index: 99999;
   position: absolute;
   right: 25px;
