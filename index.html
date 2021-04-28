@@ -9,6 +9,8 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <script src="assets/js/check_index_auth.js"></script>
+
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -33,7 +35,7 @@
   <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="/" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="Logo">
 
       </a>
@@ -93,7 +95,7 @@
             <input name="name" required type="text" placeholder="Name" />
             <input name="uid" required type="text" placeholder="Registration No." />
             <input name="email" required type="email" placeholder="Email" />
-            <input name="pass" required type="password" placeholder="Password" />
+            <input name="pass" required type="password" placeholder="Password" autocomplete="on" />
             <button type="button" id="stuSignupBtn">Sign Up</button>
           </form>
         </div>
@@ -103,7 +105,7 @@
 
             <span>or use your account</span>
             <input name="uid" required type="text" placeholder="Registration No." />
-            <input name="pass" required type="password" placeholder="Password" />
+            <input name="pass" required type="password" placeholder="Password" autocomplete="on" />
             <a href="#">Forgot your password?</a>
             <button type="button" id="stuSigninBtn">Sign in</button>
           </form>
@@ -130,7 +132,7 @@
     <div class="faculty popup">
       <div class="container" id="facultyContainer">
         <div class="form-container sign-up-container">
-          
+
           <div class="closeButton">
             <i class="fa fa-times" aria-hidden="true"></i>
           </div>
@@ -140,7 +142,7 @@
             <input name="name" required type="text" placeholder="Name" />
             <input name="uid" required type="text" placeholder="Faculty ID" />
             <input name="email" required type="email" placeholder="Email" />
-            <input name="pass" required type="password" placeholder="Password" />
+            <input name="pass" required type="password" placeholder="Password" autocomplete="on" />
             <button type="button" id="facSignupBtn">Sign Up</button>
           </form>
 
@@ -150,7 +152,7 @@
             <h1>Sign in</h1>
             <span>or use your account</span>
             <input name="uid" required type="text" placeholder="Faculty ID" />
-            <input name="pass" required type="password" placeholder="Password" />
+            <input name="pass" required type="password" placeholder="Password" autocomplete="on" />
             <a href="#">Forgot your password?</a>
             <button type="button" id="facSigninBtn">Sign in</button>
           </form>

@@ -9,6 +9,8 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <script src="assets/js/check_auth.js"></script>
+
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -26,6 +28,7 @@
   <link href="assets/css/style.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="/assets/js/logout.js"></script>
 </head>
 
 <body>
@@ -33,7 +36,7 @@
   <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="/" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="Logo">
 
       </a>
@@ -41,7 +44,7 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="/addnew.html" id="add" class="btn scrollto btn-nav">Add new project</a></li>
-          <li><a href="#" id="logout" class="btn scrollto btn-nav">Log out</a></li>
+          <li><a id="logout" class="btn scrollto btn-nav">Log out</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>

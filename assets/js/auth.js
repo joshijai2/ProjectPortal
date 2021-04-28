@@ -1,3 +1,8 @@
+Date.prototype.addHours = function (h) {
+    this.setTime(this.getTime() + (h * 60 * 60 * 1000));
+    return this;
+}
+
 // Faculty Signup
 // -----------------------------------------------------------
 $("#facSignupBtn").on("click", function () {
@@ -7,7 +12,6 @@ $("#facSignupBtn").on("click", function () {
         "email": document.facultySignup.email.value,
         "password": document.facultySignup.pass.value
     });
-
     console.log(data);
 
     var xhr = new XMLHttpRequest();
@@ -19,13 +23,24 @@ $("#facSignupBtn").on("click", function () {
 
             if (this.status === 0 || (this.status >= 200 && this.status < 400)) {
                 // The request has been completed successfully
-
                 var data = JSON.parse(this.responseText)
-                localStorage.setItem("Token", "Token " + data.token)
-                localStorage.setItem("name", data.name)
-                localStorage.setItem("email", data.email)
-                localStorage.setItem("uid", data.uid)
+
+                sessionStorage.setItem("Token", "Token " + data.token)
+                sessionStorage.setItem("ac_type", data.ac_type)
+                sessionStorage.setItem("name", data.name)
+                sessionStorage.setItem("email", data.email)
+                sessionStorage.setItem("uid", data.uid)
+
+                //The user has successfully authenticated.
+                sessionStorage.setItem("AuthenticationState", "Authenticated");
+
+                //This authentication key will expire in 1 hour.
+                sessionStorage.setItem("AuthenticationExpires", new Date().addHours(1));
+
                 window.location.replace('dashboard.html')
+            } else {
+                var data = JSON.parse(this.responseText)
+                alert(data.non_field_errors);
             }
         }
     });
@@ -45,7 +60,6 @@ $("#facSigninBtn").on("click", function () {
         "uid": document.facultySignin.uid.value,
         "password": document.facultySignin.pass.value
     });
-
     console.log(data);
 
     var xhr = new XMLHttpRequest();
@@ -57,13 +71,24 @@ $("#facSigninBtn").on("click", function () {
 
             if (this.status === 0 || (this.status >= 200 && this.status < 400)) {
                 // The request has been completed successfully
-
                 var data = JSON.parse(this.responseText)
-                localStorage.setItem("Token", "Token " + data.token)
-                localStorage.setItem("name", data.name)
-                localStorage.setItem("email", data.email)
-                localStorage.setItem("uid", data.uid)
+
+                sessionStorage.setItem("Token", "Token " + data.token)
+                sessionStorage.setItem("ac_type", data.ac_type)
+                sessionStorage.setItem("name", data.name)
+                sessionStorage.setItem("email", data.email)
+                sessionStorage.setItem("uid", data.uid)
+
+                //The user has successfully authenticated.
+                sessionStorage.setItem("AuthenticationState", "Authenticated");
+
+                //This authentication key will expire in 1 hour.
+                sessionStorage.setItem("AuthenticationExpires", new Date().addHours(1));
+
                 window.location.replace('dashboard.html')
+            } else {
+                var data = JSON.parse(this.responseText)
+                alert(data.non_field_errors);
             }
         }
     });
@@ -84,7 +109,6 @@ $("#stuSignupBtn").on("click", function () {
         "email": document.studentSignup.email.value,
         "password": document.studentSignup.pass.value
     });
-
     console.log(data);
 
     var xhr = new XMLHttpRequest();
@@ -96,13 +120,24 @@ $("#stuSignupBtn").on("click", function () {
 
             if (this.status === 0 || (this.status >= 200 && this.status < 400)) {
                 // The request has been completed successfully
-
                 var data = JSON.parse(this.responseText)
-                localStorage.setItem("Token", "Token " + data.token)
-                localStorage.setItem("name", data.name)
-                localStorage.setItem("email", data.email)
-                localStorage.setItem("uid", data.uid)
+
+                sessionStorage.setItem("Token", "Token " + data.token)
+                sessionStorage.setItem("ac_type", data.ac_type)
+                sessionStorage.setItem("name", data.name)
+                sessionStorage.setItem("email", data.email)
+                sessionStorage.setItem("uid", data.uid)
+
+                //The user has successfully authenticated.
+                sessionStorage.setItem("AuthenticationState", "Authenticated");
+
+                //This authentication key will expire in 1 hour.
+                sessionStorage.setItem("AuthenticationExpires", new Date().addHours(1));
+
                 window.location.replace('dashboard.html')
+            } else {
+                var data = JSON.parse(this.responseText)
+                alert(data.non_field_errors);
             }
         }
     });
@@ -121,7 +156,6 @@ $("#stuSigninBtn").on("click", function () {
         "uid": document.studentSignin.uid.value,
         "password": document.studentSignin.pass.value
     });
-
     console.log(data);
 
     var xhr = new XMLHttpRequest();
@@ -133,13 +167,24 @@ $("#stuSigninBtn").on("click", function () {
 
             if (this.status === 0 || (this.status >= 200 && this.status < 400)) {
                 // The request has been completed successfully
-
                 var data = JSON.parse(this.responseText)
-                localStorage.setItem("Token", "Token " + data.token)
-                localStorage.setItem("name", data.name)
-                localStorage.setItem("email", data.email)
-                localStorage.setItem("uid", data.uid)
+
+                sessionStorage.setItem("Token", "Token " + data.token)
+                sessionStorage.setItem("ac_type", data.ac_type)
+                sessionStorage.setItem("name", data.name)
+                sessionStorage.setItem("email", data.email)
+                sessionStorage.setItem("uid", data.uid)
+
+                //The user has successfully authenticated.
+                sessionStorage.setItem("AuthenticationState", "Authenticated");
+
+                //This authentication key will expire in 1 hour.
+                sessionStorage.setItem("AuthenticationExpires", new Date().addHours(1));
+
                 window.location.replace('dashboard.html')
+            } else {
+                var data = JSON.parse(this.responseText)
+                alert(data.non_field_errors);
             }
         }
     });
