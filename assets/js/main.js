@@ -3,13 +3,13 @@
 */
 
 // Login Fade
-$('.studentLogin').click(function (e) {
+$('.studentFade').click(function (e) {
   e.stopPropagation();
   $('.student.popup').fadeIn('slow');
   $('body').append('<div class="pageOverlay"></div>').css('overflow', 'hidden');
 });
 
-$('.facultyLogin').click(function (e) {
+$('.facultyFade').click(function (e) {
   e.stopPropagation();
   $('.faculty.popup').fadeIn('slow');
   $('body').append('<div class="pageOverlay"></div>').css('overflow', 'hidden');
@@ -77,6 +77,7 @@ $('.popup').click(function () {
    * Easy selector helper function
    */
   const select = (el, all = false) => {
+    console.log('el :>> ', el);
     el = el.trim()
     if (all) {
       return [...document.querySelectorAll(el)]

@@ -9,6 +9,8 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <script src="assets/js/check_index_auth.js"></script>
+
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -33,7 +35,7 @@
   <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="/" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="Logo">
 
       </a>
@@ -80,6 +82,7 @@
 
   </section>
   <!-- End Home-top -->
+
   <div id="popup">
     <div class="student popup">
       <div class="container" id="studentContainer">
@@ -87,33 +90,24 @@
           <div class="closeButton">
             <i class="fa fa-times" aria-hidden="true"></i>
           </div>
-          <form action="#">
+          <form name="studentSignup" method="POST">
             <h1>Create Account</h1>
-            <div class="social-container">
-              <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-              <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <span>or use your email for registration</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Sign Up</button>
+            <input name="name" required type="text" placeholder="Name" />
+            <input name="uid" required type="text" placeholder="Registration No." />
+            <input name="email" required type="email" placeholder="Email" />
+            <input name="pass" required type="password" placeholder="Password" autocomplete="on" />
+            <button type="button" id="stuSignupBtn">Sign Up</button>
           </form>
         </div>
         <div class="form-container sign-in-container">
-          <form action="#">
+          <form name="studentSignin" method="POST">
             <h1>Sign in</h1>
-            <div class="social-container">
-              <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-              <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+
             <span>or use your account</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input name="uid" required type="text" placeholder="Registration No." />
+            <input name="pass" required type="password" placeholder="Password" autocomplete="on" />
             <a href="#">Forgot your password?</a>
-            <button>Sign In</button>
+            <button type="button" id="stuSigninBtn">Sign in</button>
           </form>
         </div>
         <div class="overlay-container">
@@ -138,36 +132,29 @@
     <div class="faculty popup">
       <div class="container" id="facultyContainer">
         <div class="form-container sign-up-container">
+
           <div class="closeButton">
             <i class="fa fa-times" aria-hidden="true"></i>
           </div>
-          <form action="#">
+
+          <form name="facultySignup" method=POST>
             <h1>Create Account</h1>
-            <div class="social-container">
-              <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-              <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <span>or use your email for registration</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Sign Up</button>
+            <input name="name" required type="text" placeholder="Name" />
+            <input name="uid" required type="text" placeholder="Faculty ID" />
+            <input name="email" required type="email" placeholder="Email" />
+            <input name="pass" required type="password" placeholder="Password" autocomplete="on" />
+            <button type="button" id="facSignupBtn">Sign Up</button>
           </form>
+
         </div>
         <div class="form-container sign-in-container">
-          <form action="#">
+          <form name="facultySignin" method="POST">
             <h1>Sign in</h1>
-            <div class="social-container">
-              <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-              <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-            </div>
             <span>or use your account</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input name="uid" required type="text" placeholder="Faculty ID" />
+            <input name="pass" required type="password" placeholder="Password" autocomplete="on" />
             <a href="#">Forgot your password?</a>
-            <button>Sign In</button>
+            <button type="button" id="facSigninBtn">Sign in</button>
           </form>
         </div>
         <div class="overlay-container">
@@ -190,6 +177,7 @@
       </div>
     </div>
   </div>
+
   <main id="main">
     <!-- ======= Auth Section ======= -->
     <section id="auth" class="auth">
@@ -202,7 +190,7 @@
         <div class="row gy-4">
 
           <div class="col-lg-6 col-md-12" data-aos="fade-up" data-aos-delay="200">
-            <a class='studentLogin'>
+            <a class='studentFade'>
               <div class="auth-box blue">
                 <i class="ri-discuss-line icon"></i>
                 <h3>Student</h3>
@@ -212,7 +200,7 @@
           </div>
 
           <div class="col-lg-6 col-md-12" data-aos="fade-up" data-aos-delay="200">
-            <a class='facultyLogin'>
+            <a class='facultyFade'>
               <div class="auth-box blue">
                 <i class="ri-discuss-line icon"></i>
                 <h3>Faculty</h3>
@@ -310,7 +298,7 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="forms/contact.php" method="post" class="php-email-form">
+            <form method="post" class="php-email-form">
               <div class="row gy-4">
 
                 <div class="col-md-6">
@@ -366,8 +354,9 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
-  <!-- Main JS File -->
+  <!-- JS Files -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
 
 </body>
 
