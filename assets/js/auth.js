@@ -39,8 +39,13 @@ $("#facSignupBtn").on("click", function () {
 
                 window.location.replace('dashboard.html')
             } else {
-                var data = JSON.parse(this.responseText)
-                alert(data.non_field_errors);
+                try {
+                    var data = JSON.parse(this.responseText);
+                    alert(Object.values(data)[0][0]);
+                }
+                catch (err) {
+                    alert("Error signing up! Please contact admin.");
+                }
             }
         }
     });
@@ -91,8 +96,13 @@ $("#facSigninBtn").on("click", function () {
                     alert("The account does not belong to Faculty! Try student login.")
                 }
             } else {
-                var data = JSON.parse(this.responseText)
-                alert(data.non_field_errors);
+                try {
+                    var data = JSON.parse(this.responseText);
+                    alert(Object.values(data)[0][0]);
+                }
+                catch (err) {
+                    alert("Error signing in! Please contact admin.");
+                }
             }
         }
     });
@@ -140,8 +150,14 @@ $("#stuSignupBtn").on("click", function () {
 
                 window.location.replace('dashboard.html')
             } else {
-                var data = JSON.parse(this.responseText)
-                alert(data.non_field_errors);
+                try {
+                    var data = JSON.parse(this.responseText);
+                    alert(Object.values(data)[0][0]);
+                }
+                catch (err) {
+                    alert("Error signing up! Please contact admin.");
+                }
+
             }
         }
     });
@@ -191,8 +207,13 @@ $("#stuSigninBtn").on("click", function () {
                     alert("The account does not belong to Student! Try faculty login.")
                 }
             } else {
-                var data = JSON.parse(this.responseText)
-                alert(data.non_field_errors);
+                try {
+                    var data = JSON.parse(this.responseText);
+                    alert(Object.values(data)[0][0]);
+                }
+                catch (err) {
+                    alert("Error signing in! Please contact admin.");
+                }
             }
         }
     });
