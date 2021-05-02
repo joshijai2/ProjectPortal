@@ -248,15 +248,15 @@ section {
   color: #4154f1;
 }
 
-.navbar .btn-nav {
+.navbar .btn-nav, .btn-card {
   background: #4154f1;
   padding: 8px 20px;
   margin-left: 30px;
   border-radius: 4px;
-  color: #fff;
+  color: #fff!important;
 }
 
-.navbar .btn-nav:hover {
+.navbar .btn-nav:hover, .btn-card:hover {
   color: #fff;
   background: #5969f3;
 }
@@ -389,7 +389,7 @@ section {
   color: #012970;
 }
 
-.navbar-mobile .btn-nav {
+.navbar-mobile .btn-nav,.navbar-mobile .btn-card {
   margin: 15px;
 }
 
@@ -1263,4 +1263,13 @@ section {
   text-align: center;
   font-size: 13px;
   color: #012970;
+}
+
+/* -----------------------------------
+custom css 
+-------------------------------------*/
+.bg-card{
+  background: #d0d4fc;
+  border-width: 0;
+  box-shadow: 0 0 2px 2.5px #d0d4fc;
 }

@@ -72,20 +72,24 @@ $("#facSigninBtn").on("click", function () {
             if (this.status === 0 || (this.status >= 200 && this.status < 400)) {
                 // The request has been completed successfully
                 var data = JSON.parse(this.responseText)
+                if (data.ac_type == "Faculty") {
+                    sessionStorage.setItem("ac_type", data.ac_type)
+                    sessionStorage.setItem("Token", "Token " + data.token)
+                    sessionStorage.setItem("name", data.name)
+                    sessionStorage.setItem("email", data.email)
+                    sessionStorage.setItem("uid", data.uid)
 
-                sessionStorage.setItem("Token", "Token " + data.token)
-                sessionStorage.setItem("ac_type", data.ac_type)
-                sessionStorage.setItem("name", data.name)
-                sessionStorage.setItem("email", data.email)
-                sessionStorage.setItem("uid", data.uid)
+                    //The user has successfully authenticated.
+                    sessionStorage.setItem("AuthenticationState", "Authenticated");
 
-                //The user has successfully authenticated.
-                sessionStorage.setItem("AuthenticationState", "Authenticated");
+                    //This authentication key will expire in 1 hour.
+                    sessionStorage.setItem("AuthenticationExpires", new Date().addHours(1));
 
-                //This authentication key will expire in 1 hour.
-                sessionStorage.setItem("AuthenticationExpires", new Date().addHours(1));
-
-                window.location.replace('dashboard.html')
+                    window.location.replace('dashboard.html')
+                }
+                else {
+                    alert("The account does not belong to Faculty! Try student login.")
+                }
             } else {
                 var data = JSON.parse(this.responseText)
                 alert(data.non_field_errors);
@@ -168,20 +172,24 @@ $("#stuSigninBtn").on("click", function () {
             if (this.status === 0 || (this.status >= 200 && this.status < 400)) {
                 // The request has been completed successfully
                 var data = JSON.parse(this.responseText)
+                if (data.ac_type == "Student") {
+                    sessionStorage.setItem("ac_type", data.ac_type)
+                    sessionStorage.setItem("Token", "Token " + data.token)
+                    sessionStorage.setItem("name", data.name)
+                    sessionStorage.setItem("email", data.email)
+                    sessionStorage.setItem("uid", data.uid)
 
-                sessionStorage.setItem("Token", "Token " + data.token)
-                sessionStorage.setItem("ac_type", data.ac_type)
-                sessionStorage.setItem("name", data.name)
-                sessionStorage.setItem("email", data.email)
-                sessionStorage.setItem("uid", data.uid)
+                    //The user has successfully authenticated.
+                    sessionStorage.setItem("AuthenticationState", "Authenticated");
 
-                //The user has successfully authenticated.
-                sessionStorage.setItem("AuthenticationState", "Authenticated");
+                    //This authentication key will expire in 1 hour.
+                    sessionStorage.setItem("AuthenticationExpires", new Date().addHours(1));
 
-                //This authentication key will expire in 1 hour.
-                sessionStorage.setItem("AuthenticationExpires", new Date().addHours(1));
-
-                window.location.replace('dashboard.html')
+                    window.location.replace('dashboard.html')
+                }
+                else {
+                    alert("The account does not belong to Student! Try faculty login.")
+                }
             } else {
                 var data = JSON.parse(this.responseText)
                 alert(data.non_field_errors);
