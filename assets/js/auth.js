@@ -10,27 +10,27 @@ $("#facSignupBtn").on("click", function () {
         "name": document.facultySignup.name.value,
         "uid": document.facultySignup.uid.value,
         "email": document.facultySignup.email.value,
-        "pass": document.facultySignup.pass.value
+        "password": document.facultySignup.pass.value
     };
     console.log(data);
-    let error="";
+    let error = "";
     let name = /^[a-zA-Z]+$/;
     let uid = /^[0-9]{5}$/;
-    let pass = /^.{8,}$/;
+    let password = /^.{8,}$/;
     let flag = 0
-    if (!name.test(data['name'])){
-        error+=">> Enter only Alphabets in name!\n";
+    if (!name.test(data['name'])) {
+        error += ">> Enter only Alphabets in name!\n";
         flag = 1;
     }
-    if (!uid.test(data['uid'])){
-        error+=">> Enter 5 digits in Faculty ID!\n";
+    if (!uid.test(data['uid'])) {
+        error += ">> Enter 5 digits in Faculty ID!\n";
         flag = 1;
     }
-    if (!pass.test(data['pass'])){
-        error+=">> Password must be of atleast length 8!\n";
+    if (!password.test(data['password'])) {
+        error += ">> Password must be of atleast length 8!\n";
         flag = 1;
     }
-    if(flag){
+    if (flag) {
         return alert(error);
     }
 
@@ -70,7 +70,7 @@ $("#facSignupBtn").on("click", function () {
         }
     });
 
-    xhr.open("POST", "http://localhost:8000/register-faculty/");
+    xhr.open("POST", "https://projenarator.herokuapp.com/register-faculty/");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.send(JSON.stringify(data));
@@ -83,24 +83,24 @@ $("#facSignupBtn").on("click", function () {
 $("#facSigninBtn").on("click", function () {
     var data = {
         "uid": document.facultySignin.uid.value,
-        "pass": document.facultySignin.pass.value
+        "password": document.facultySignin.pass.value
     };
     console.log(data);
 
-    let error="";
+    let error = "";
     let uid = /^[0-9]{5}$/;
-    let pass = /^.{8,}$/;
+    let password = /^.{8,}$/;
     let flag = 0
 
-    if (!uid.test(data['uid'])){
-        error+=">> Enter 5 digits in Faculty ID!\n";
+    if (!uid.test(data['uid'])) {
+        error += ">> Enter 5 digits in Faculty ID!\n";
         flag = 1;
     }
-    if (!pass.test(data['pass'])){
-        error+=">> Password must be of atleast length 8!\n";
+    if (!password.test(data['password'])) {
+        error += ">> Password must be of atleast length 8!\n";
         flag = 1;
     }
-    if(flag){
+    if (flag) {
         return alert(error);
     }
 
@@ -144,7 +144,7 @@ $("#facSigninBtn").on("click", function () {
         }
     });
 
-    xhr.open("POST", "http://localhost:8000/login/");
+    xhr.open("POST", "https://projenarator.herokuapp.com/login/");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.sendJSON.stringify((data));
@@ -158,28 +158,28 @@ $("#stuSignupBtn").on("click", function () {
         "name": document.studentSignup.name.value,
         "uid": document.studentSignup.uid.value,
         "email": document.studentSignup.email.value,
-        "pass": document.studentSignup.pass.value
+        "password": document.studentSignup.pass.value
     };
     console.log(data);
 
-    let error="";
+    let error = "";
     let name = /^[a-zA-Z]*$/;
     let uid = /^[0-9]{2}[A-Z]{3}[0-9]{4}$/;
-    let pass = /^.{8,}$/;
+    let password = /^.{8,}$/;
     let flag = 0
-    if (!name.test(data['name'])){
-        error+=">> Enter only Alphabets in name!\n";
+    if (!name.test(data['name'])) {
+        error += ">> Enter only Alphabets in name!\n";
         flag = 1;
     }
-    if (!uid.test(data['uid'])){
-        error+=">> Enter correct format of Reg No.!\n";
+    if (!uid.test(data['uid'])) {
+        error += ">> Enter correct format of Reg No.!\n";
         flag = 1;
     }
-    if (!pass.test(data['pass'])){
-        error+=">> Password must be of atleast length 8!\n";
+    if (!password.test(data['password'])) {
+        error += ">> Password must be of atleast length 8!\n";
         flag = 1;
     }
-    if(flag){
+    if (flag) {
         return alert(error);
     }
 
@@ -220,7 +220,7 @@ $("#stuSignupBtn").on("click", function () {
         }
     });
 
-    xhr.open("POST", "http://localhost:8000/register-student/");
+    xhr.open("POST", "https://projenarator.herokuapp.com/register-student/");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.send(JSON.stringify(data));
@@ -232,24 +232,24 @@ $("#stuSignupBtn").on("click", function () {
 $("#stuSigninBtn").on("click", function () {
     var data = {
         "uid": document.studentSignin.uid.value,
-        "pass": document.studentSignin.pass.value
+        "password": document.studentSignin.pass.value
     };
     console.log(data);
 
-    let error="";
+    let error = "";
     let uid = /^[0-9]{2}[A-Z]{3}[0-9]{4}$/;
-    let pass = /^.{8,}$/;
+    let password = /^.{8,}$/;
     let flag = 0
-    
-    if (!uid.test(data['uid'])){
-        error+=">> Enter correct format of Reg No.!\n";
+
+    if (!uid.test(data['uid'])) {
+        error += ">> Enter correct format of Reg No.!\n";
         flag = 1;
     }
-    if (!pass.test(data['pass'])){
-        error+=">> Password must be of atleast length 8!\n";
+    if (!password.test(data['password'])) {
+        error += ">> Password must be of atleast length 8!\n";
         flag = 1;
     }
-    if(flag){
+    if (flag) {
         return alert(error);
     }
 
@@ -293,7 +293,7 @@ $("#stuSigninBtn").on("click", function () {
         }
     });
 
-    xhr.open("POST", "http://localhost:8000/login/");
+    xhr.open("POST", "https://projenarator.herokuapp.com/login/");
     xhr.setRequestHeader("Content-Type", "application/json");
 
     xhr.send(JSON.stringify(data));
