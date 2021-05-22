@@ -21,23 +21,23 @@ $("#addprj").on("click", function () {
     console.log(data);
 
     let error = "";
-    let name = /^[A-Za-z0-9]+$/;
+    let title = /^[A-Za-z0-9]+$/;
     let regno = /^[0-9]{2}[A-Z]{3}[0-9]{4}$/;
     let letters = /^[A-Za-z]+$/;
     // let urllink = /^[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/;
-    let coursecode = /^[A-Za-z]{3}[0-9]{4}$/;
+    let course_code = /^[A-Za-z]{3}[0-9]{4}$/;
     let duration = /^[0-9]+$/;
 
     let flag = 0
 
-    if (!name.test(data['title'])) {
+    if (!title.test(data['title'])) {
         error += ">> Enter proper name of Project! (No Special Characters)\n";
         flag = 1;
     }
-    if (!regno.test(data['rno'])) {
-        error += ">> Registration Number should be of the type 11XXX1111!\n";
-        flag = 1;
-    }
+    // if (!regno.test(data['rno'])) {
+    //     error += ">> Registration Number should be of the type 11XXX1111!\n";
+    //     flag = 1;
+    // }
     if (!letters.test(data['sname'])) {
         error += ">> Student Name should consist of Alphabets!\n";
         flag = 1;
@@ -50,7 +50,7 @@ $("#addprj").on("click", function () {
     //     error += ">> Link should be of proper format!\n";
     //     flag = 1;
     // }
-    if (!coursecode.test(data['code'])) {
+    if (!course_code.test(data['course_code'])) {
         error += ">> Course Code should be of the format XXX1111!\n";
         flag = 1;
     }
