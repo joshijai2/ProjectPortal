@@ -13,7 +13,7 @@ $("#addprj").on("click", function () {
         "course_code": document.addnew.code.value,
         "course_name": document.addnew.cname.value,
         "duration": document.addnew.duration.value,
-        "description": document.addnew.desc.value,
+        "description": document.addnew.desc.value
         // "domain" :document.addnew.domain.value,
         // "facultyid" :document.addnew.fid.value,
 
