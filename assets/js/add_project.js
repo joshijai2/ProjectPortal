@@ -4,7 +4,7 @@ $("#addprj").on("click", function () {
     data.append("title",document.addnew.title.value);
     data.append("start_date", document.addnew.sdate.value);
     data.append("end_date", document.addnew.fdate.value);
-    data.append("file", document.addnew.file.files[0],document.addnew.file.value);
+    data.append("file", document.addnew.file.files[0],document.addnew.file.files[0].name);
     data.append("link", document.addnew.link.value);
     data.append("author", "{ \"name\" : \"" + document.addnew.sname.value + "\",\"regno\" : \"" + document.addnew.rno.value + "\"}");
     data.append("faculty", document.addnew.faculty.value);
