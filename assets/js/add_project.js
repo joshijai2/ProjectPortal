@@ -30,7 +30,7 @@ $("#addprj").on("click", function () {
 
     let flag = 0
 
-    if (!name.test(data['text'])) {
+    if (!name.test(data['title'])) {
         error += ">> Enter proper name of Project! (No Special Characters)\n";
         flag = 1;
     }
