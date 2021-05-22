@@ -46,10 +46,10 @@ $("#addprj").on("click", function () {
         error += ">> Faculty Name should consist of !\n";
         flag = 1;
     }
-    if (!urllink.test(data['link'])) {
-        error += ">> Link should be of proper format!\n";
-        flag = 1;
-    }
+    // if (!urllink.test(data['link'])) {
+    //     error += ">> Link should be of proper format!\n";
+    //     flag = 1;
+    // }
     if (!coursecode.test(data['code'])) {
         error += ">> Course Code should be of the format XXX1111!\n";
         flag = 1;
