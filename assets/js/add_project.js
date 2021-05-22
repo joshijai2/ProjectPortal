@@ -1,9 +1,21 @@
-$("#submit").on("click", function () {
+$("#addprj").on("click", function () {
     sessionStorage.setItem("prj_add", 0);
     var data = {
         "title": document.addnew.text.value,
-        "regno": document.addnew.rno.value,
+        "start_date": document.addnew.sdate.value,
+        "end_date": document.addnew.fdate.value,
+        "file": document.addnew.file.value,
+        "link": document.addnew.link.value,
+        "author": " {\"author\" : [{\"name\" : \"" + document.addnew.sname.value + "\",\"regno\" : \"" + document.addnew.rno.value + "\"}]}",
+        "faculty": document.addnew.faculty.value,
 
+        // "file", fileInput.files[0], "VL2019205003491_DA.pdf");
+        "course_code": document.addnew.code.value,
+        "course_name": document.addnew.cname.value,
+        "duration": document.addnew.duration.value,
+        "description": document.addnew.desc.value,
+        // "domain" :document.addnew.domain.value,
+        // "facultyid" :document.addnew.fid.value,
 
     };
     console.log(data);
@@ -37,23 +49,21 @@ $("#submit").on("click", function () {
                 // The request has been completed successfully
                 var data = JSON.parse(this.responseText)
                 sessionStorage.setItem("prj_add", 1);
-                    window.location.replace('dashboard.html')
 
-        
+                window.location.replace('dashboard.html')
             } else {
                 try {
                     var data = JSON.parse(this.responseText);
                     alert(Object.values(data)[0][0]);
-                }
-                catch (err) {
-                    alert("Error signing in! Please contact admin.");
+                } catch (err) {
+                    alert("Error in adding project");
                 }
             }
         }
     });
 
-    xhr.open("POST", "https://projenarator.herokuapp.com/addproject/");
-    xhr.setRequestHeader("Content-Type", "application/json");
-
+    xhr.open("POST", "https://projenarator.herokuapp.com/projects/new/");
+    xhr.setRequestHeader("Content-Type", "multipart/form-data");
+    xhr.setRequestHeader("Authorization", sessionStorage.getItem("Token"));
     xhr.send(JSON.stringify(data));
 });
