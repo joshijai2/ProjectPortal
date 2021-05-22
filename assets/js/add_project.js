@@ -1,23 +1,20 @@
 $("#addprj").on("click", function () {
     sessionStorage.setItem("prj_add", 0);
-    var data = {
-        "title": document.addnew.title.value,
-        "start_date": document.addnew.sdate.value,
-        "end_date": document.addnew.fdate.value,
-        "file": document.addnew.file.value,
-        "link": document.addnew.link.value,
-        "author": " {\"author\" : [{\"name\" : \"" + document.addnew.sname.value + "\",\"regno\" : \"" + document.addnew.rno.value + "\"}]}",
-        "faculty": document.addnew.faculty.value,
-
-        // "file", fileInput.files[0], "VL2019205003491_DA.pdf"
-        "course_code": document.addnew.code.value,
-        "course_name": document.addnew.cname.value,
-        "duration": document.addnew.duration.value,
-        "description": document.addnew.desc.value
+    var data = new FormData();
+    data.append("title",document.addnew.title.value);
+    data.append("start_date", document.addnew.sdate.value);
+    data.append("end_date", document.addnew.fdate.value);
+    data.append("file", fileInput.files[0],document.addnew.file.value);
+    data.append("link", document.addnew.link.value);
+    data.append("author", "{ \"name\" : \"" + document.addnew.sname.value + "\",\"regno\" : \"" + document.addnew.rno.value + "\"}");
+    data.append("faculty", document.addnew.faculty.value);
+    data.append("course_code", document.addnew.code.value);
+    data.append("course_name", document.addnew.cname.value);
+    data.append("duration", document.addnew.duration.value);
+    data.append("description", document.addnew.desc.value);
         // "domain" :document.addnew.domain.value,
         // "facultyid" :document.addnew.fid.value,
-
-    };
+  
     console.log(data);
 
     let error = "";
@@ -93,5 +90,5 @@ $("#addprj").on("click", function () {
     xhr.open("POST", "https://projenarator.herokuapp.com/projects/new/");
     xhr.setRequestHeader("Content-Type", "multipart/form-data");
     xhr.setRequestHeader("Authorization", sessionStorage.getItem("Token"));
-    xhr.send(JSON.stringify(data));
+    xhr.send(data);
 });
