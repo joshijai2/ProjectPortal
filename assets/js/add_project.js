@@ -9,7 +9,7 @@ $("#addprj").on("click", function () {
         "author": " {\"author\" : [{\"name\" : \"" + document.addnew.sname.value + "\",\"regno\" : \"" + document.addnew.rno.value + "\"}]}",
         "faculty": document.addnew.faculty.value,
 
-        // "file", fileInput.files[0], "VL2019205003491_DA.pdf");
+        // "file", fileInput.files[0], "VL2019205003491_DA.pdf"
         "course_code": document.addnew.code.value,
         "course_name": document.addnew.cname.value,
         "duration": document.addnew.duration.value,
