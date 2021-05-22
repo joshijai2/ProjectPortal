@@ -1,7 +1,7 @@
 $("#addprj").on("click", function () {
     sessionStorage.setItem("prj_add", 0);
     var data = {
-        "title": document.addnew.text.value,
+        "title": document.addnew.title.value,
         "start_date": document.addnew.sdate.value,
         "end_date": document.addnew.fdate.value,
         "file": document.addnew.file.value,
