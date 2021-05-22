@@ -21,12 +21,12 @@ $("#addprj").on("click", function () {
     console.log(data);
 
     let error = "";
-    let name = /^[A-Za-z0-9]$/;
+    let name = /^[A-Za-z0-9]+$/;
     let regno = /^[0-9]{2}[A-Z]{3}[0-9]{4}$/;
-    let letters = /^[A-Za-z]$/;
-    let urllink = /^[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/;
-    let coursecode = /^[A-Z]{3}[0-9]{4}$/;
-    let duration = /^[0-9]$/;
+    let letters = /^[A-Za-z]$+/;
+    // let urllink = /^[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/;
+    let coursecode = /^[A-Za-z]{3}[0-9]{4}$/;
+    let duration = /^[0-9]+$/;
 
     let flag = 0
 
