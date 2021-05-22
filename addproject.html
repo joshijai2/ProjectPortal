@@ -32,6 +32,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="assets/js/logout.js"></script>
+  <script src="assets/js/add_project.js"></script>
 </head>
 
 <body>
@@ -64,14 +65,15 @@
     </header>
     <div class="container align-items-center">
       <div class="row">
-       
-          <form name="addnew">
-            <div class="col-lg-6 d-flex flex-column justify-content-center">
-            <div class="form-group row">
-              <label for="text" class="col-4 col-form-label">Project Title/Name</label>
+
+        <form name="addnew"  method=POST>
+          <ul>
+
+            <li>
+              <label for="name" class="col col-form-label">Project Title/Name</label>
               <div class="col-8">
                 <div class="input-group">
-                  <input id="text" name="text" placeholder="Insert your name here" type="text" required
+                  <input id="name" name="name" placeholder="Insert your name here" type="text" required
                     class="form-control">
                   <div class="input-group-append">
                     <div class="input-group-text">
@@ -80,32 +82,34 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </li>
 
-            <div class="form-group row">
-              <label for="sdate" class="col-4 col-form-label">Start Date</label>
+            <li>
+              <label for="sdate" class="col col-form-label">Start Date</label>
               <div class="col-8">
-               <input id="sdate" name="sdate" placeholder="Start Date" type="date" class="form-control" required>
+                <input id="sdate" name="sdate" placeholder="Start Date" type="date" class="form-control" required>
               </div>
-            </div>
+            </li>
 
-            <div class="form-group row">
-              <label for="fdate" class="col-4 col-form-label">End Date</label>
+            <li>
+              <label for="fdate" class="col col-form-label">End Date</label>
               <div class="col-8">
                 <input id="fdate" name="fdate" placeholder="End Date" type="date" class="form-control" required>
               </div>
-            </div>
-            <div class="form-group row">
-              <label for="file" class="col-4 col-form-label">File Upload</label>
+            </li>
+
+            <li>
+              <label for="file" class="col col-form-label">File Upload</label>
               <div class="col-8">
                 <div class="input-group">
-                  <input id="file" name="file" placeholder="Upload your project files here" type="file" required>
+                  <input id="file" name="file" placeholder="Upload your project files here" type="file">
 
                 </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <label for="link" class="col-4 col-form-label">Link</label>
+            </li>
+
+            <li>
+              <label for="link" class="col col-form-label">Link</label>
               <div class="col-8">
                 <div class="input-group">
                   <input id="link" name="link" placeholder="Insert your link here" type="text" class="form-control">
@@ -116,77 +120,73 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="form-group row">
-              <label for="sname" class="col-4 col-form-label">Student Name</label>
+            </li>
+
+            <li>
+              <label for="sname" class="col col-form-label">Student Name</label>
               <div class="col-8">
                 <input id="sname" name="sname" type="text" class="form-control" required>
               </div>
-            </div>
-            <div class="form-group row">
-              <label for="rno" class="col-4 col-form-label">Registration Number</label>
+            </li>
+
+            <li>
+              <label for="rno" class="col col-form-label">Registration Number</label>
               <div class="col-8">
                 <input id="rno" name="rno" type="text" class="form-control" required>
               </div>
-            </div>
+            </li>
 
-            <div class="form-group row">
-              <label for="faculty" class="col-4 col-form-label">Faculty Name</label>
+            <li>
+              <label for="faculty" class="col col-form-label">Faculty Name</label>
               <div class="col-8">
                 <input id="faculty" name="faculty" placeholder="Enter name of faculty here" type="text"
                   class="form-control" required>
               </div>
-            </div>
-          
-        </div>
+            </li>
 
-
-
-        <div class="col-lg-6 d-flex flex-column justify-content-center">
-          
-
-            <div class="form-group row">
-              <label for="code" class="col-4 col-form-label">Course Code</label>
+            <li>
+              <label for="code" class="col col-form-label">Course Code</label>
               <div class="col-8">
                 <input id="code" name="code" placeholder="Insert Course Code here" type="text" class="form-control"
                   required>
               </div>
-            </div>
-            <div class="form-group row">
-              <label for="cname" class="col-4 col-form-label">Course Name</label>
+            </li>
+
+            <li>
+              <label for="cname" class="col col-form-label">Course Name</label>
               <div class="col-8">
                 <input id="cname" name="cname" placeholder="Insert the name of your course" type="text"
                   class="form-control" required>
               </div>
-            </div>
-            <div class="form-group row">
-              <label for="duration" class="col-4 col-form-label">Project Duration</label>
+            </li>
+
+            <li>
+              <label for="duration" class="col col-form-label">Project Duration</label>
               <div class="col-8">
                 <input id="duration" name="duration" placeholder="Enter Project Duration in Months" type="text"
                   class="form-control" required>
               </div>
-            </div>
-            <div class="form-group row">
-              <label for="desc" class="col-4 col-form-label">Description</label>
+            </li>
+
+            <li>
+              <label for="desc" class="col col-form-label">Description</label>
               <div class="col-8">
                 <textarea id="desc" name="desc" cols="40" rows="8" class="form-control"></textarea>
               </div>
-            </div>
+            </li>
 
-            <class class="form-group row">
-              <div class="offset-4 col-8">
-                <button id="addprj" type="submit" class="btn btn-primary" style="background-color: blue;">Add
+            <li>
+              <div class="offset col-8">
+                <button id="addprj" type="button" class="btn btn-primary" style="background-color: blue;">Add
                   Project!</button>
               </div>
-            </class>
-          </div>
-          </form>
-        </div>
+            </li>
+
+          </ul>
+        </form>
 
       </div>
-
-
-
+    </div>
 
   </section>
   <!-- End addproject-top -->
@@ -200,11 +200,11 @@
         <p>Contact Us</p>
       </header>
 
-      <div class="row gy-4">
+      <div class="row gy">
 
         <div class="col-lg-6">
 
-          <div class="row gy-4">
+          <div class="row gy">
             <div class="col-md-6">
               <div class="info-box">
                 <i class="bi bi-geo-alt"></i>
@@ -233,7 +233,7 @@
 
         <div class="col-lg-6">
           <form action="forms/contact.php" method="post" class="php-email-form">
-            <div class="row gy-4">
+            <div class="row gy">
 
               <div class="col-md-6">
                 <input type="text" name="name" class="form-control" placeholder="Your Name" required>
