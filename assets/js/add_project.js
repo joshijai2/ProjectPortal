@@ -21,17 +21,45 @@ $("#addprj").on("click", function () {
     console.log(data);
 
     let error = "";
-    let name = /^[A-Za-z]$/;
+    let name = /^[A-Za-z0-9]$/;
     let regno = /^[0-9]{2}[A-Z]{3}[0-9]{4}$/;
+    let letters = /^[A-Za-z]$/;
+    let urllink = /^[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/;
+    let coursecode = /^[A-Z]{3}[0-9]{4}$/;
+    let duration = /^[0-9]$/;
 
     let flag = 0
 
-    if (!uid.test(data['uid'])) {
-        error += ">> Enter correct format of Reg No.!\n";
+    if (!name.test(data['text'])) {
+        error += ">> Enter proper name of Project! (No Special Characters)\n";
         flag = 1;
     }
-    if (!password.test(data['password'])) {
-        error += ">> Password must be of atleast length 8!\n";
+    if (!regno.test(data['rno'])) {
+        error += ">> Registration Number should be of the type 11XXX1111!\n";
+        flag = 1;
+    }
+    if (!letters.test(data['sname'])) {
+        error += ">> Student Name should consist of Alphabets!\n";
+        flag = 1;
+    }
+    if (!letters.test(data['faculty'])) {
+        error += ">> Faculty Name should consist of !\n";
+        flag = 1;
+    }
+    if (!urllink.test(data['link'])) {
+        error += ">> Link should be of proper format!\n";
+        flag = 1;
+    }
+    if (!coursecode.test(data['code'])) {
+        error += ">> Course Code should be of the format XXX1111!\n";
+        flag = 1;
+    }
+    if (!letters.test(data['cname'])) {
+        error += ">> Course Name should not contain any special characters or Numbers!\n";
+        flag = 1;
+    }
+    if (!duration.test(data['duration'])) {
+        error += ">> Duration should contain numbers (in months)!\n";
         flag = 1;
     }
     if (flag) {
