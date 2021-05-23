@@ -7,8 +7,11 @@ function display(projects, page = 1) {
 
   for (let row = 1; row <= rows; row++) {
     $('#projects').append('<div id="row' + row + '" class="row"></div>');
+
+    let start = start_index + 3*(row-1);
     let end = Math.min(start_index + 3, n);
-    for (let i = start_index; i < end; i++)
+
+    for (let i = start; i < end; i++)
       $("#row" + row).append(
         `
         <div class="col-lg-4 d-flex flex-column justify-content-center">
