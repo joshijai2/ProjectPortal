@@ -43,7 +43,7 @@ function loadProjects() {
         sessionStorage.setItem("projects", data);
         sessionStorage.setItem("page", 1);
         let n = projects.length;
-        let pages = math.ceil(n / 6);
+        let pages = Math.ceil(n / 6);
         display(data);
 
       } else {
