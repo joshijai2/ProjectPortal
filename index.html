@@ -93,10 +93,10 @@
           </div>
           <form name="studentSignup" method="POST">
             <h1>Create Account</h1>
-            <input name="name" required type="text" placeholder="Name" />
-            <input name="uid" required type="text" placeholder="Registration No." />
-            <input name="email" required type="email" placeholder="Email" />
-            <input name="pass" required type="password" placeholder="Password" autocomplete="on" />
+            <input name="name" type="text" placeholder="Name" />
+            <input name="uid" type="text" placeholder="Registration No." />
+            <input name="email" type="email" placeholder="Email" />
+            <input name="pass" type="password" placeholder="Password" autocomplete="on" />
             <button type="button" id="stuSignupBtn">Sign Up</button>
           </form>
         </div>
@@ -104,8 +104,8 @@
           <form name="studentSignin" method="POST">
             <h1>Sign in</h1>
 
-            <input name="uid" required type="text" placeholder="Registration No." />
-            <input name="pass" required type="password" placeholder="Password" autocomplete="on" />
+            <input name="uid" type="text" placeholder="Registration No." />
+            <input name="pass" type="password" placeholder="Password" autocomplete="on" />
             <a href="#">Forgot your password?</a>
             <button type="button" id="stuSigninBtn">Sign in</button>
           </form>
@@ -139,10 +139,10 @@
 
           <form name="facultySignup" method=POST>
             <h1>Create Account</h1>
-            <input name="name" required type="text" placeholder="Name" />
-            <input name="uid" required type="text" placeholder="Faculty ID" />
-            <input name="email" required type="email" placeholder="Email" />
-            <input name="pass" required type="password" placeholder="Password" autocomplete="on" />
+            <input name="name" type="text" placeholder="Name" />
+            <input name="uid" type="text" placeholder="Faculty ID" />
+            <input name="email" type="email" placeholder="Email" />
+            <input name="pass" type="password" placeholder="Password" autocomplete="on" />
             <button type="button" id="facSignupBtn">Sign Up</button>
           </form>
 
@@ -151,8 +151,8 @@
           <form name="facultySignin" method="POST">
             <h1>Sign in</h1>
 
-            <input name="uid" required type="text" placeholder="Faculty ID" />
-            <input name="pass" required type="password" placeholder="Password" autocomplete="on" />
+            <input name="uid" type="text" placeholder="Faculty ID" />
+            <input name="pass" type="password" placeholder="Password" autocomplete="on" />
             <a href="#">Forgot your password?</a>
             <button type="button" id="facSigninBtn">Sign in</button>
           </form>
@@ -305,19 +305,19 @@
               <div class="row gy-4">
 
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                  <input type="text" name="name" class="form-control" placeholder="Your Name">
                 </div>
 
                 <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                  <input type="email" class="form-control" name="email" placeholder="Your Email">
                 </div>
 
                 <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                  <input type="text" class="form-control" name="subject" placeholder="Subject">
                 </div>
 
                 <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
+                  <textarea class="form-control" name="message" rows="6" placeholder="Message"></textarea>
                 </div>
 
                 <div class="col-md-12 text-center">
