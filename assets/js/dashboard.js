@@ -1,4 +1,9 @@
+function welcome(){
+  $("#welcome").innerHTML = "Welcome "+sessionStorage.getItem("name");
+}
+
 function display(projects, page = 1) {
+  welcome();
   let n = projects.length;
   let start_index = 6 * (page - 1);
   let end_index = Math.min(start_index + 6, n);
@@ -62,11 +67,6 @@ function loadProjects() {
   xhr.send();
 };
 
-function welcome(){
-  $("#welcome").innerHTML = "Welcome "+sessionStorage.getItem("name");
-}
-
 window.onpaint = loadProjects();
-window.onpaint = welcome();
 
   // display(data, page)
