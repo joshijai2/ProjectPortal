@@ -26,7 +26,7 @@ function display(projects, page = 1) {
       
       $("#row" + row).append(
         `
-        <div class="col-lg-4 d-flex flex-column justify-content-center">
+        <div class="col-lg-4 d-flex flex-column justify-content-center" padding="5%">
           <div id="` + i + `" class="card bg-card" onclick="viewProject(` + projects[i]["uuid"] + `)" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">`+ projects[i]["title"] + `</h5>
