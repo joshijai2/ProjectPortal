@@ -3,24 +3,24 @@ $("#addprj").on("click", function () {
     var data = {
         "title": document.addnew.title.value,
         "start_date": document.addnew.sdate.value,
-        "end_date": document.addnew.fdate.value,
-        "file": document.addnew.file.value,
+        "end_date": document.addnew.edate.value,
         "link": document.addnew.link.value,
-        "author": '{"name" : "' + document.addnew.sname.value + '","regno" : "' + document.addnew.rno.value + '"}',
+        "author": '{"name" : "' + document.addnew.sname.value + '","regno" : "' + document.addnew.regno.value + '"}',
         "faculty": document.addnew.faculty.value,
-        "course_code": document.addnew.code.value,
+        "facultyId": document.addnew.fid.value,
+        "course_code": document.addnew.ccode.value,
         "course_name": document.addnew.cname.value,
         "duration": document.addnew.duration.value,
         "description": document.addnew.desc.value
         // "domain" :document.addnew.domain.value,
-        // "facultyid" :document.addnew.fid.value,
     };
+
     console.log(data);
 
     let error = "";
-    let title = /^[A-Za-z0-9]+$/;
+    let title = /^[A-Za-z0-9 ]+$/;
     let regno = /^[0-9]{2}[A-Z]{3}[0-9]{4}$/;
-    let letters = /^[A-Za-z]+$/;
+    let letters = /^[A-Za-z ]+$/;
     let course_code = /^[A-Za-z]{3}[0-9]{4}$/;
     let duration = /^[0-9]+$/;
 
@@ -30,14 +30,25 @@ $("#addprj").on("click", function () {
         error += ">> Enter proper name of Project! (No Special Characters)\n";
         flag = 1;
     }
-    // if (!regno.test(data['rno'])) {
-    //     error += ">> Registration Number should be of the type 11XXX1111!\n";
-    //     flag = 1;
-    // }
-    // if (!letters.test(data['sname'])) {
-    //     error += ">> Student Name should consist of Alphabets!\n";
-    //     flag = 1;
-    // }
+
+    let snames = document.addnew.sname.value.split(",");
+    for (let i in regs) {
+        if (!letters.test(snames[i].trim())) {
+            error += ">> Student Name should consist of Alphabets and separated by commas!\n";
+            flag = 1;
+            break;
+        }
+    }
+
+    let regs = document.addnew.regno.value.split(",");
+    for (let i in regs) {
+        if (!regno.test(regs[i].trim())) {
+            error += ">> Registration Number should be of the type 20XXX9999 and separated by commas!\n";
+            flag = 1;
+            break;
+        }
+    }
+
     if (!letters.test(data['faculty'])) {
         error += ">> Faculty Name should consist of !\n";
         flag = 1;
@@ -47,14 +58,17 @@ $("#addprj").on("click", function () {
         error += ">> Course Code should be of the format XXX1111!\n";
         flag = 1;
     }
+
     if (!letters.test(data['course_name'])) {
         error += ">> Course Name should not contain any special characters or Numbers!\n";
         flag = 1;
     }
+
     if (!duration.test(data['duration'])) {
         error += ">> Duration should contain numbers (in months)!\n";
         flag = 1;
     }
+
     if (flag) {
         return alert(error);
     }
@@ -79,7 +93,7 @@ $("#addprj").on("click", function () {
     });
 
     xhr.open("POST", "https://projenarator.herokuapp.com/projects/new/");
-    xhr.setRequestHeader("Content-Type", "multipart/form-data");
+    xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Authorization", sessionStorage.getItem("Token"));
     xhr.send(JSON.stringify(data));
 });
