@@ -14,7 +14,7 @@ $("#facSignupBtn").on("click", function () {
     };
     console.log(data);
     let error = "";
-    let name = /^[a-zA-Z]+$/;
+    let name = /^[a-zA-Z ]+$/;
     let uid = /^[0-9]{5}$/;
     let password = /^.{8,}$/;
     let flag = 0
@@ -163,7 +163,7 @@ $("#stuSignupBtn").on("click", function () {
     console.log(data);
 
     let error = "";
-    let name = /^[a-zA-Z]*$/;
+    let name = /^[a-zA-Z ]*$/;
     let uid = /^[0-9]{2}[A-Z]{3}[0-9]{4}$/;
     let password = /^.{8,}$/;
     let flag = 0
