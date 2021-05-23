@@ -1,5 +1,5 @@
 function welcome(){
-  $("#welcome").innerHTML = "Welcome "+sessionStorage.getItem("name");
+  $("#welcome").append("Welcome "+sessionStorage.getItem("name")+" "+sessionStorage.getItem("uid"));
 }
 
 function display(projects, page = 1) {
