@@ -1,13 +1,13 @@
 function display(projects, page = 1) {
   let n = projects.length;
   let start_index = 6 * (page - 1);
-  let end_index = min(start_index + 6, n - 1);
+  let end_index = Math.min(start_index + 6, n - 1);
 
-  let rows = math.ceil((end_index - start_index) / 2)
+  let rows = Math.ceil((end_index - start_index) / 2)
 
   for (let row = 1; row <= rows; row++) {
     $('#projects').append('<div id="row' + row + '" class="row"></div>');
-    let end = min(start_index + 3, n - 1);
+    let end = Math.min(start_index + 3, n - 1);
     for (let i = start_index; i <= end; i++)
       $("#row" + row).append(
         `
@@ -24,7 +24,7 @@ function display(projects, page = 1) {
           </div>
         </div>
         `
-    );
+      );
   }
 };
 
@@ -37,13 +37,13 @@ function loadProjects() {
       console.log('this.responseText :>> ', this.responseText);
       console.log('this.status :>> ', this.status);
 
-      if (this.status === 0 || (this.status >= 200 && this.status < 400)) {
+      if (this.status >= 200 && this.status < 400) {
         // The request has been completed successfully
         var data = JSON.parse(this.responseText);
         sessionStorage.setItem("projects", data);
         sessionStorage.setItem("page", 1);
         let n = projects.length;
-        let pages = math.ceil(n / 6);
+        let pages = Math.ceil(n / 6);
         display(data);
 
       } else {
