@@ -1,22 +1,25 @@
-function welcome(){
-  $("#welcome").append("Welcome "+sessionStorage.getItem("name")+" "+sessionStorage.getItem("uid"));
+function welcome() {
+  $("#welcome").append("Welcome " + sessionStorage.getItem("name") + " " + sessionStorage.getItem("uid"));
 }
 
 function display(projects, page = 1) {
   welcome();
   let n = projects.length;
   let start_index = 6 * (page - 1);
-  let end_index = Math.min(start_index + 6, n);
+  let end_index = Math.min(start_index + 5, n - 1);
 
   let rows = Math.ceil((end_index - start_index) / 2)
 
   for (let row = 1; row <= rows; row++) {
     $('#projects').append('<div id="row' + row + '" class="row"></div>');
 
-    let start = start_index + 3*(row-1);
-    let end = Math.min(start_index + 3, n);
+    let start = start_index + 3 * (row - 1);
+    let end = Math.min(start + 2, n - 1);
 
-    for (let i = start; i < end; i++)
+    console.log('start :>> ', start);
+
+    for (let i = start; i <= end; i++) {
+      
       $("#row" + row).append(
         `
         <div class="col-lg-4 d-flex flex-column justify-content-center">
@@ -33,6 +36,7 @@ function display(projects, page = 1) {
         </div>
         `
       );
+    }
   }
 };
 
