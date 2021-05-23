@@ -35,6 +35,8 @@ function display(projects, page = 1) {
               <a href="viewproject.html" class="btn btn-card">View Project</a>
             </div>
           </div>
+          </div>
+          <br>
       
         `
       );
