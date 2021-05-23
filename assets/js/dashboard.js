@@ -3,7 +3,7 @@ function display(projects, page = 1) {
   let start_index = 6 * (page - 1);
   let end_index = min(start_index + 6, n - 1);
 
-  let rows = math.ceil((end_index - start_index) / 2)
+  let rows = Math.ceil((end_index - start_index) / 2)
 
   for (let row = 1; row <= rows; row++) {
     $('#projects').append('<div id="row' + row + '" class="row"></div>');
