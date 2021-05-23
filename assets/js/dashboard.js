@@ -23,7 +23,7 @@ function display(projects, page = 1) {
     console.log('start :>> ', start);
 
     for (let i = start; i <= end; i++) {
-      
+    
       $("#row" + row).append(
         `
         <div class="col-lg-4 d-flex flex-column justify-content-center" >
@@ -35,7 +35,7 @@ function display(projects, page = 1) {
               <a href="viewproject.html" class="btn btn-card">View Project</a>
             </div>
           </div>
-        </div>
+      
         `
       );
     }
