@@ -62,6 +62,11 @@ function loadProjects() {
   xhr.send();
 };
 
+function welcome(){
+  $("#welcome").innerHTML = "Welcome "+sessionStorage.getItem("name");
+}
+
 window.onpaint = loadProjects();
+window.onpaint = welcome();
 
   // display(data, page)
