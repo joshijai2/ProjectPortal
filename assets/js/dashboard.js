@@ -1,5 +1,5 @@
 function welcome() {
-  $("#welcome").append("Welcome " + sessionStorage.getItem("name") + " " + sessionStorage.getItem("uid"));
+  $("#welcome").empty().append("Welcome " + sessionStorage.getItem("name") + " " + sessionStorage.getItem("uid"));
 }
 
 function viewProject(uuid){
@@ -7,13 +7,17 @@ function viewProject(uuid){
 }
 
 function display(projects, page = 1) {
+  sessionStorage.setItem("page",page);
   welcome();
+  console.log(projects);
   let n = projects.length;
-  let start_index = 6 * (page - 1);
-  let end_index = Math.min(start_index + 5, n - 1);
-
+  console.log("project ka length",n);
+  let start_index = 6* (page - 1);
+  let end_index = Math.min(start_index + 6, n);
+  console.log("endindex",end_index);
   let rows = Math.ceil((end_index - start_index) / 3)
-
+  console.log("rows",rows);
+  $('#projects').empty();
   for (let row = 1; row <= rows; row++) {
     $('#projects').append('<div id="row' + row + '" class="row"></div>');
 
@@ -54,7 +58,7 @@ function showpage(pages) {
       </li>`)
      for(let i= 1;i<=pages;i++)
      {
-      $("#pageno").append(`<li class="page-item"><a class="page-link" onclick="display(sessionStorage.getItem("projects"),`+i+`)">`+i+`</a></li>`)
+      $("#pageno").append(`<li class="page-item"><a class="page-link" onclick="display(JSON.parse(sessionStorage.getItem('projects')),`+i+`)">`+i+`</a></li>`)
      }
     $("#pageno").append(`
      
@@ -78,12 +82,15 @@ function loadProjects() {
       if (this.status >= 200 && this.status < 400) {
         // The request has been completed successfully
         var data = JSON.parse(this.responseText);
-        sessionStorage.setItem("projects", data);
+        sessionStorage.setItem("projects", JSON.stringify(data));
         sessionStorage.setItem("page", 1);
-        let n = projects.length;
+        let n = data.length;
         let pages = Math.ceil(n / 6);
+        console.log(n);
         display(data);
         showpage(pages);
+        console.log(pages);
+      
 
       } else {
         alert("Error in loading projects! Please reload.");
