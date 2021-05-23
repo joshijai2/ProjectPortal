@@ -2,21 +2,20 @@ function welcome() {
   $("#welcome").empty().append("Welcome " + sessionStorage.getItem("name") + " " + sessionStorage.getItem("uid"));
 }
 
-function viewProject(uuid){
-  
+function viewProject(index){
+  sessionStorage.setItem("viewIndex") = index;
+  window.open("viewproject.html", "_self");
 }
 
 function display(projects, page = 1) {
   sessionStorage.setItem("page",page);
   welcome();
-  console.log(projects);
   let n = projects.length;
-  console.log("project ka length",n);
-  let start_index = 6* (page - 1);
+  let start_index = 6 * (page - 1);
   let end_index = Math.min(start_index + 6, n);
-  console.log("endindex",end_index);
+
   let rows = Math.ceil((end_index - start_index) / 3)
-  console.log("rows",rows);
+  
   $('#projects').empty();
   for (let row = 1; row <= rows; row++) {
     $('#projects').append('<div id="row' + row + '" class="row"></div>');
@@ -36,12 +35,10 @@ function display(projects, page = 1) {
               <h4 class="card-title">`+ projects[i]["title"] + `</h4>
               <h5 class="card-text">`+ projects[i]["domain"]+`</h5>
               <h5 class="card-text">`+ projects[i]["faculty"]+`</h5>
-              <a href="viewproject.html" class="btn btn-card">View Project</a>
+              <a onclick="viewProject('` + i + `');" class="btn btn-card">View Project</a>
             </div>
           </div>
           </div>
-  
-      
         `
       );
     }
@@ -84,21 +81,23 @@ function loadProjects() {
         var data = JSON.parse(this.responseText);
         sessionStorage.setItem("projects", JSON.stringify(data));
         sessionStorage.setItem("page", 1);
+        
         let n = data.length;
         let pages = Math.ceil(n / 6);
-        console.log(n);
         display(data);
         showpage(pages);
-        console.log(pages);
-      
-
       } else {
         alert("Error in loading projects! Please reload.");
       }
     }
   });
 
-  xhr.open("GET", "https://projenarator.herokuapp.com/projects/new/");
+  let curr_loc = window.location.href.split("/");
+  let api = "new/";
+  if(curr_loc[curr_loc.length-1]=="dashboardf.html")
+    api = "my/";
+
+  xhr.open("GET", "https://projenarator.herokuapp.com/projects/"+api);
   xhr.setRequestHeader("Content-Type", "application/json");
   xhr.setRequestHeader("Authorization", sessionStorage.getItem("Token"));
 

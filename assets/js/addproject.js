@@ -37,7 +37,7 @@ function retrieveData() {
         "start_date": document.addnew.sdate.value,
         "end_date": document.addnew.edate.value,
         "link": document.addnew.link.value,
-        "author": '{"name" : "' + document.addnew.sname.value + '","regno" : "' + document.addnew.regno.value + '"}',
+        "author": "{\"name\" : \"" + document.addnew.sname.value + "\",\"regno\" : \"" + document.addnew.regno.value + "\"}",
         "faculty": document.addnew.faculty.value,
         "facultyId": document.addnew.fid.value,
         "course_code": document.addnew.ccode.value,
@@ -155,8 +155,8 @@ $("#editPrj").on("click", function () {
             }
         }
     });
-
-    xhr.open("POST", "https://projenarator.herokuapp.com/projects/new/");
+    let uuid = sessionStorage.getItem("editUuid");
+    xhr.open("PATCH", "https://projenarator.herokuapp.com/projects/new/"+uuid);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Authorization", sessionStorage.getItem("Token"));
     xhr.send(JSON.stringify(data));
