@@ -26,14 +26,12 @@ function display(projects, page = 1) {
       
       $("#row" + row).append(
         `
-        <div class="col-lg-4 d-flex flex-column justify-content-center" padding="5%">
+        <div class="col-lg-4 d-flex flex-column justify-content-center" >
           <div id="` + i + `" class="card bg-card" onclick="viewProject(` + projects[i]["uuid"] + `)" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">`+ projects[i]["title"] + `</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-                optio, eaque rerum! Provident similique accusantium nemo autem</p>
+              <h4 class="card-title">`+ projects[i]["title"] + `</h4>
+              <h5 class="card-text">`+ projects[i]["domain"]+`</h5>
+              <h5 class="card-text">`+ projects[i]["faculty"]+`</h5>
               <a href="viewproject.html" class="btn btn-card">View Project</a>
             </div>
           </div>
