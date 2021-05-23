@@ -83,6 +83,7 @@ function loadProjects() {
         let n = projects.length;
         let pages = Math.ceil(n / 6);
         display(data);
+        showpage(pages);
 
       } else {
         alert("Error in loading projects! Please reload.");
