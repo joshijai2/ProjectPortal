@@ -2,6 +2,10 @@ function welcome() {
   $("#welcome").append("Welcome " + sessionStorage.getItem("name") + " " + sessionStorage.getItem("uid"));
 }
 
+function viewProject(uuid){
+  
+}
+
 function display(projects, page = 1) {
   welcome();
   let n = projects.length;
@@ -23,7 +27,7 @@ function display(projects, page = 1) {
       $("#row" + row).append(
         `
         <div class="col-lg-4 d-flex flex-column justify-content-center">
-          <div id="` + projects[i]["uuid"] + `" class="card bg-card" style="width: 18rem;">
+          <div id="` + i + `" class="card bg-card" onclick="viewProject(` + projects[i]["uuid"] + `)" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">`+ projects[i]["title"] + `</h5>
               <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
