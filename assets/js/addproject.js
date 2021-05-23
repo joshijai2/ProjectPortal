@@ -1,31 +1,31 @@
-function isEdit(){
-    if (sessionStorage.getItem("isEdit")==1 && sessionStorage.getItem("editUuid")!=null){
+function isEdit() {
+    if (sessionStorage.getItem("isEdit") == 1 && sessionStorage.getItem("editUuid") != null) {
         let uuid = sessionStorage.getItem("editUuid");
         let data = sessionStorage.getItem("projects");
-        for(let i in data){
-            if (data[i]["uuid"]==uuid){
-                
-        document.addnew.title.value = data[i]["title"];
-        document.addnew.sdate.value= data[i]["start_date"];
-        document.addnew.edate.value=data[i]["end_date"];
-        document.addnew.link.value=data[i]["link"];
-        document.addnew.sname.value=data[i]["author"]["name"];
-        document.addnew.regno.value=data[i]["author"]["regno"];
-        document.addnew.faculty.value=data[i].faculty;
-        document.addnew.fid.value=data[i].facultyId;
-        document.addnew.ccode.value=data[i].course_code;
-        document.addnew.cname.value=data[i].course_name;
-        document.addnew.duration.value=data[i].duration;
-        document.addnew.desc.value=data[i].description;
-        document.addnew.domain.value=data[i].domain;
+        for (let i in data) {
+            if (data[i]["uuid"] == uuid) {
+
+                document.addnew.title.value = data[i]["title"];
+                document.addnew.sdate.value = data[i]["start_date"];
+                document.addnew.edate.value = data[i]["end_date"];
+                document.addnew.link.value = data[i]["link"];
+                document.addnew.sname.value = data[i]["author"]["name"];
+                document.addnew.regno.value = data[i]["author"]["regno"];
+                document.addnew.faculty.value = data[i].faculty;
+                document.addnew.fid.value = data[i].facultyId;
+                document.addnew.ccode.value = data[i].course_code;
+                document.addnew.cname.value = data[i].course_name;
+                document.addnew.duration.value = data[i].duration;
+                document.addnew.desc.value = data[i].description;
+                document.addnew.domain.value = data[i].domain;
             }
-        } 
-        
+        }
+
     }
 }
 window.onpaint = isEdit();
 
-function retrieveData(){
+function retrieveData() {
     var data = {
         "title": document.addnew.title.value,
         "start_date": document.addnew.sdate.value,
@@ -40,7 +40,7 @@ function retrieveData(){
         "description": document.addnew.desc.value
         // "domain" :document.addnew.domain.value,
     };
-    
+
     console.log(data);
 
     let error = "";
@@ -112,7 +112,7 @@ $("#addprj").on("click", function () {
             console.log('this.responseText :>> ', this.responseText);
             console.log('this.status :>> ', this.status);
 
-            if (this.status === 0 || (this.status >= 200 && this.status < 400)) {
+            if (this.status >= 200 && this.status < 400) {
                 // The request has been completed successfully
                 var data = JSON.parse(this.responseText)
                 sessionStorage.setItem("isProjectAdded", 1);
@@ -132,7 +132,7 @@ $("#addprj").on("click", function () {
 
 $("#editprj").on("click", function () {
     let data = retrieveData();
-    
+
     var xhr = new XMLHttpRequest();
 
     xhr.addEventListener("readystatechange", function () {
@@ -140,7 +140,7 @@ $("#editprj").on("click", function () {
             console.log('this.responseText :>> ', this.responseText);
             console.log('this.status :>> ', this.status);
 
-            if (this.status === 0 || (this.status >= 200 && this.status < 400)) {
+            if (this.status >= 200 && this.status < 400) {
                 // The request has been completed successfully
                 var data = JSON.parse(this.responseText)
                 window.location.replace('dashboard.html');

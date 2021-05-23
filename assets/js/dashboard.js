@@ -24,7 +24,7 @@ function display(projects, page = 1) {
           </div>
         </div>
         `
-    );
+      );
   }
 };
 
@@ -37,7 +37,7 @@ function loadProjects() {
       console.log('this.responseText :>> ', this.responseText);
       console.log('this.status :>> ', this.status);
 
-      if (this.status === 0 || (this.status >= 200 && this.status < 400)) {
+      if (this.status >= 200 && this.status < 400) {
         // The request has been completed successfully
         var data = JSON.parse(this.responseText);
         sessionStorage.setItem("projects", data);
