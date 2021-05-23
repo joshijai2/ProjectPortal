@@ -12,7 +12,7 @@ function display(projects, page = 1) {
   let start_index = 6 * (page - 1);
   let end_index = Math.min(start_index + 5, n - 1);
 
-  let rows = Math.ceil((end_index - start_index) / 2)
+  let rows = Math.ceil((end_index - start_index) / 3)
 
   for (let row = 1; row <= rows; row++) {
     $('#projects').append('<div id="row' + row + '" class="row"></div>');
@@ -43,6 +43,28 @@ function display(projects, page = 1) {
     }
   }
 };
+
+function showpage(pages) {
+  if(pages>1)
+  {
+    $("#pageno").append(`<nav aria-label="...">
+    <ul class="pagination">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+      </li>`)
+     for(let i= 1;i<=pages;i++)
+     {
+      $("#pageno").append(`<li class="page-item"><a class="page-link" onclick="display(sessionStorage.getItem("projects"),`+i+`)">`+i+`</a></li>`)
+     }
+    $("#pageno").append(`
+     
+     <li class="page-item">
+        <a class="page-link" >Next</a>
+      </li>
+    </ul>
+  </nav>`)
+  }
+}
 
 function loadProjects() {
   var xhr = new XMLHttpRequest();
