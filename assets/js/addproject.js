@@ -3,20 +3,21 @@ function isEdit(){
         let uuid = sessionStorage.getItem("editUuid");
         let data = sessionStorage.getItem("projects");
         for(let i in data){
-            if data[i]["uuid"]==uuid{
+            if (data[i]["uuid"]==uuid){
                 
-                document.addnew.title.value = data[i].title;
-        "start_date": document.addnew.sdate.value,
-        "end_date": document.addnew.edate.value,
-        "link": document.addnew.link.value,
-        "author": '{"name" : "' + document.addnew.sname.value + '","regno" : "' + document.addnew.regno.value + '"}',
-        "faculty": document.addnew.faculty.value,
-        "facultyId": document.addnew.fid.value,
-        "course_code": document.addnew.ccode.value,
-        "course_name": document.addnew.cname.value,
-        "duration": document.addnew.duration.value,
-        "description": document.addnew.desc.value
-        // "domain" :document.addnew.domain.value,
+        document.addnew.title.value = data[i]["title"];
+        document.addnew.sdate.value= data[i]["start_date"];
+        document.addnew.edate.value=data[i]["end_date"];
+        document.addnew.link.value=data[i]["link"];
+        document.addnew.sname.value=data[i]["author"]["name"];
+        document.addnew.regno.value=data[i]["author"]["regno"];
+        document.addnew.faculty.value=data[i].faculty;
+        document.addnew.fid.value=data[i].facultyId;
+        document.addnew.ccode.value=data[i].course_code;
+        document.addnew.cname.value=data[i].course_name;
+        document.addnew.duration.value=data[i].duration;
+        document.addnew.desc.value=data[i].description;
+        document.addnew.domain.value=data[i].domain;
             }
         } 
         
