@@ -1,13 +1,13 @@
 function display(projects, page = 1) {
   let n = projects.length;
   let start_index = 6 * (page - 1);
-  let end_index = min(start_index + 6, n - 1);
+  let end_index = Math.min(start_index + 6, n - 1);
 
   let rows = Math.ceil((end_index - start_index) / 2)
 
   for (let row = 1; row <= rows; row++) {
     $('#projects').append('<div id="row' + row + '" class="row"></div>');
-    let end = min(start_index + 3, n - 1);
+    let end = Math.min(start_index + 3, n - 1);
     for (let i = start_index; i <= end; i++)
       $("#row" + row).append(
         `
