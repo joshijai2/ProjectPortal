@@ -1,9 +1,8 @@
-
-function isEdit(){
-    if (sessionStorage.getItem("isEdit")==1 && sessionStorage.getItem("editUuid")!=null){
-        $("#add").innerHTML="Edit My Project";
-        $("#addprj").innerHTML="Edit Project";
-        $("addprj").attr("id")="editprj";
+function isEdit() {
+    if (sessionStorage.getItem("isEdit") == 1 && sessionStorage.getItem("editUuid") != null) {
+        $("#add").innerHTML = "Edit My Project";
+        $("#addPrj").innerHTML = "Edit Project";
+        $("addPrj").attr("id") = "editPrj";
 
         let uuid = sessionStorage.getItem("editUuid");
         let data = sessionStorage.getItem("projects");
@@ -109,7 +108,7 @@ function retrieveData() {
     return data;
 }
 
-$("#addprj").on("click", function () {
+$("#addPrj").on("click", function () {
     sessionStorage.setItem("isProjectAdded", 0);
     let data = retrieveData();
     var xhr = new XMLHttpRequest();
@@ -137,7 +136,7 @@ $("#addprj").on("click", function () {
     xhr.send(JSON.stringify(data));
 });
 
-$("#editprj").on("click", function () {
+$("#editPrj").on("click", function () {
     let data = retrieveData();
 
     var xhr = new XMLHttpRequest();
