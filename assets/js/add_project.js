@@ -32,7 +32,7 @@ $("#addprj").on("click", function () {
     }
 
     let snames = document.addnew.sname.value.split(",");
-    for (let i in regs) {
+    for (let i in snames) {
         if (!letters.test(snames[i].trim())) {
             error += ">> Student Name should consist of Alphabets and separated by commas!\n";
             flag = 1;
