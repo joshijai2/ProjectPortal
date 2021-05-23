@@ -1,5 +1,4 @@
-$("#addprj").on("click", function () {
-    sessionStorage.setItem("isProjectAdded", 0);
+function retrieveData(){
     var data = {
         "title": document.addnew.title.value,
         "start_date": document.addnew.sdate.value,
@@ -73,6 +72,42 @@ $("#addprj").on("click", function () {
         return alert(error);
     }
 
+    return data;
+}
+
+$("#addprj").on("click", function () {
+    sessionStorage.setItem("isProjectAdded", 0);
+    let data = retrieveData();
+    var xhr = new XMLHttpRequest();
+
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            console.log('this.responseText :>> ', this.responseText);
+            console.log('this.status :>> ', this.status);
+
+            if (this.status === 0 || (this.status >= 200 && this.status < 400)) {
+                // The request has been completed successfully
+                var data = JSON.parse(this.responseText)
+                sessionStorage.setItem("isProjectAdded", 1);
+
+                window.location.replace('dashboard.html');
+            } else {
+                alert("Error in adding project");
+            }
+        }
+    });
+
+    xhr.open("POST", "https://projenarator.herokuapp.com/projects/new/");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Authorization", sessionStorage.getItem("Token"));
+    xhr.send(JSON.stringify(data));
+});
+
+$("#editprj").on("click", function () {
+    sessionStorage.setItem("isProjectEdited", 0);
+
+    let data = retrieveData();
+    
     var xhr = new XMLHttpRequest();
 
     xhr.addEventListener("readystatechange", function () {
