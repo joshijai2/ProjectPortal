@@ -1,5 +1,10 @@
 function isEdit(){
     if (sessionStorage.getItem("isEdit")==1 && sessionStorage.getItem("editUuid")!=null){
+        $("#add").innerHTML="Edit My Project";
+        $("#addprj").innerHTML="Edit Project";
+        $("addprj").attr("id")="editprj";
+
+
         let uuid = sessionStorage.getItem("editUuid");
         let data = sessionStorage.getItem("projects");
         for(let i in data){
@@ -24,6 +29,7 @@ function isEdit(){
     }
 }
 window.onpaint = isEdit();
+
 
 function retrieveData(){
     var data = {
