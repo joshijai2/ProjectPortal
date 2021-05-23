@@ -9,7 +9,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <script src="assets/js/check_auth.js"></script>
+  <!-- <script src="assets/js/check_auth.js"></script> -->
 
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -60,127 +60,64 @@
       <p>My Project</p>
     </header>
     <div class="container align-items-center">
-      <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center">
-          <form>
-            <div class="form-group row">
-              <label for="text" class="col-4 col-form-label">Project Title/Name</label>
-              <div class="col-8">
-                <div class="input-group">
-                  <input id="text" name="text" placeholder="Insert your name here" type="text" disabled
-                    class="form-control">
-                  <div class="input-group-append">
-                    <div class="input-group-text">
-                      <i class="fa fa-address-card"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="sdate" class="col-4 col-form-label">Start Date</label>
-              <div class="col-8">
-                <input id="sdate" name="sdate" placeholder="Start Date" type="text" class="form-control" disabled>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="edate" class="col-4 col-form-label">End Date</label>
-              <div class="col-8">
-                <input id="edate" name="edate" placeholder="End Date" type="text" class="form-control" disabled>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="file" class="col-4 col-form-label">File Upload</label>
-              <div class="col-8">
-                <div class="input-group">
-                  <input id="file" name="file" placeholder="Upload your project files here" type="file" disabled>
 
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="link" class="col-4 col-form-label">Link</label>
-              <div class="col-8">
-                <div class="input-group">
-                  <input id="link" name="link" placeholder="Insert your link here" type="text" class="form-control"
-                    disabled>
-                  <div class="input-group-append">
-                    <div class="input-group-text">
-                      <i class="fa fa-paperclip"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="sname" class="col-4 col-form-label">Student Name</label>
-              <div class="col-8">
-                <input id="sname" name="sname" type="text" class="form-control" disabled>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="regno" class="col-4 col-form-label">Registration Number</label>
-              <div class="col-8">
-                <input id="regno" name="regno" type="text" class="form-control" disabled>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label for="faculty" class="col-4 col-form-label">Faculty Name</label>
-              <div class="col-8">
-                <input id="faculty" name="faculty" placeholder="Enter name of faculty here" type="text"
-                  class="form-control" disabled>
-              </div>
-            </div>
-          </form>
-        </div>
-
-
-
-        <div class="col-lg-6 d-flex flex-column justify-content-center">
-          <form>
-
-            <div class="form-group row">
-              <label for="ccode" class="col-4 col-form-label">Course Code</label>
-              <div class="col-8">
-                <input id="ccode" name="ccode" placeholder="Insert Course Code here" type="text" class="form-control"
-                  disabled>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="cname" class="col-4 col-form-label">Course Name</label>
-              <div class="col-8">
-                <input id="cname" name="cname" placeholder="Insert the name of your course" type="text"
-                  class="form-control" disabled>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="duration" class="col-4 col-form-label">Project Duration</label>
-              <div class="col-8">
-                <input id="duration" name="duration" placeholder="Enter Project Duration in Months" type="text"
-                  class="form-control" disabled>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="description" class="col-4 col-form-label">Description</label>
-              <div class="col-8">
-                <textarea id="description" name="description" cols="40" rows="8" class="form-control"
-                  disabled></textarea>
-              </div>
-            </div>
-
-            <class class="form-group row">
-              <div class="offset-4 col-8">
-                <button name="submit" type="submit" class="btn btn-primary" style="background-color: blue;">Edit
-                  Project!</button>
-              </div>
-            </class>
-          </form>
-        </div>
+      <table class="table table-responsive">
+        <tbody>
+          <tr>
+            <th scope="col">PROJECT TITLE</th>
+            <td id="title">Machine Learning</td>
+            <th scope="col">TEAM DETAILS </th>
+            <td>panda,piggy,Mota mammoth</td>
+          </tr>
+          <tr>
+            <th scope="col">DOMAIN</th>
+            <td>ML</td>
+            <th scope="col">REGISTRATION NUMBERS</th>
+            <td>18BIT0226,18BIT0239,18BIT0253</td>
+          </tr>
+        
+          <tr>
+            <th scope="col">START DATE</th>
+            <td>27-07-2020</td>
+            <th scope="col">END DATE</th>
+            <td>27-07-2020</td>
+          </tr>
+          <tr>
+            <th scope="col">FACULTY NAME</th>
+            <td>Santra</td>
+            <th scope="col">FACULTY ID</th>
+            <td>84321</td>
+          </tr>
+          <tr>
+            <th scope="col">COURSE CODE</th>
+            <td>ite2010</td>
+            <th scope="col">COURSE NAME</th>
+            <td>AI</td>
+          </tr>
+          <tr>
+            <th scope="col">LINK</th>
+            <td>https://github.com/joshijai2/ProjectGenerator</td>
+            <th scope="col">DURATION</th>
+            <td>4 </td>
+          </tr>
+          <tr>
+            
+            <th scope="col">DESCRIPTION</th>
+            <td>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur, facere. Velit quod praesentium reprehenderit? Repudiandae sit deserunt provident nobis ad mollitia, pariatur quaerat voluptate similique, eos error explicabo iusto est. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quasi vitae esse cumque soluta cum. Exercitationem iste, voluptatum tempora blanditiis deserunt aspernatur quae mollitia nobis obcaecati, tenetur dicta perspiciatis quidem?</td>
+            
+          <td><class class="form-group row">
+           
+              <button name="submit" type="submit" class="btn btn-primary" style="background-color: blue;">Edit
+                Project!</button>
+           </class></td>
+          </tr>
+        </tbody>
+      </table>
+      
 
       </div>
 
-    </div>
+   
 
 
   </section>
