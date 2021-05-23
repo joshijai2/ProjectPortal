@@ -1,3 +1,29 @@
+function isEdit(){
+    if (sessionStorage.getItem("isEdit")==1 && sessionStorage.getItem("editUuid")!=null){
+        let uuid = sessionStorage.getItem("editUuid");
+        let data = sessionStorage.getItem("projects");
+        for(let i in data){
+            if data[i]["uuid"]==uuid{
+                
+                document.addnew.title.value = data[i].title;
+        "start_date": document.addnew.sdate.value,
+        "end_date": document.addnew.edate.value,
+        "link": document.addnew.link.value,
+        "author": '{"name" : "' + document.addnew.sname.value + '","regno" : "' + document.addnew.regno.value + '"}',
+        "faculty": document.addnew.faculty.value,
+        "facultyId": document.addnew.fid.value,
+        "course_code": document.addnew.ccode.value,
+        "course_name": document.addnew.cname.value,
+        "duration": document.addnew.duration.value,
+        "description": document.addnew.desc.value
+        // "domain" :document.addnew.domain.value,
+            }
+        } 
+        
+    }
+}
+window.onpaint = isEdit();
+
 function retrieveData(){
     var data = {
         "title": document.addnew.title.value,
@@ -13,7 +39,7 @@ function retrieveData(){
         "description": document.addnew.desc.value
         // "domain" :document.addnew.domain.value,
     };
-
+    
     console.log(data);
 
     let error = "";
@@ -104,8 +130,6 @@ $("#addprj").on("click", function () {
 });
 
 $("#editprj").on("click", function () {
-    sessionStorage.setItem("isProjectEdited", 0);
-
     let data = retrieveData();
     
     var xhr = new XMLHttpRequest();
@@ -118,8 +142,6 @@ $("#editprj").on("click", function () {
             if (this.status === 0 || (this.status >= 200 && this.status < 400)) {
                 // The request has been completed successfully
                 var data = JSON.parse(this.responseText)
-                sessionStorage.setItem("isProjectAdded", 1);
-
                 window.location.replace('dashboard.html');
             } else {
                 alert("Error in adding project");
