@@ -43,8 +43,8 @@ function retrieveData() {
         "course_code": document.addnew.ccode.value,
         "course_name": document.addnew.cname.value,
         "duration": document.addnew.duration.value,
-        "description": document.addnew.desc.value
-        // "domain" :document.addnew.domain.value,
+        "description": document.addnew.desc.value,
+        "domain" :document.addnew.domain.value
     };
 
     console.log(data);
