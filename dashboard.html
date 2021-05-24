@@ -41,9 +41,18 @@
         <img src="assets/img/favicon.png" alt="Logo">
       </a>
 
-<div id="welcome">
+      <div id="welcome">
+        <script>
 
-</div>
+          $("#welcome").empty().append(
+            "Welcome "
+          + sessionStorage.getItem("name")
+          + " "
+          + sessionStorage.getItem("uid")
+          );
+
+        </script>
+      </div>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -57,7 +66,7 @@
   </header>
   <!-- End Header -->
 
-  <!-- ======= Home-top Section ======= -->
+  <!-- ======= home-top Section======= -->
   <section id="home-top" class="home-top align-items-center">
     <header class="section-header">
       <p>View My Projects</p>
@@ -65,17 +74,16 @@
     <div id="projects" class="container align-items-center">
 
     </div>
-    
+    <div id="pageno" class="container justify-content-center d-flex">
+
+    </div>
   </section>
-  <!-- End Home-top -->
+  <!-- End home-top -->
 
   <!-- ======= Contact Section ======= -->
   <section id="contact" class="contact">
-<div id="pageno" class="container-fluid container-xl d-flex align-items-center justify-content-between">
-  
-</div>
     <div class="container" data-aos="fade-up">
-    
+
       <header class="section-header">
         <p>Contact Us</p>
       </header>
@@ -150,10 +158,6 @@
 
   </section>
   <!-- End Contact Section -->
-
-  </main>
-  <!-- End #main -->
-
   <!-- ======= Footer ======= -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i

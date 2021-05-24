@@ -1,6 +1,6 @@
-/**
+/************************************************************
  * Login / Sign up Pop up
-*/
+*************************************************************/
 
 // Login Fade
 $('.studentFade').click(function (e) {
@@ -39,35 +39,22 @@ $('.popup').click(function (e) {
   e.stopPropagation();
 });
 
-// login signup transitions---------------------------------------------
-$('.popup').click(function () {
-  const studentSignUp = document.getElementById('studentSignUp');
-  const studentSignIn = document.getElementById('studentSignIn');
-  const studentContainer = document.getElementById('studentContainer');
-
-  studentSignUp.addEventListener('click', () => {
-    studentContainer.classList.add("right-panel-active");
-  });
-
-  studentSignIn.addEventListener('click', () => {
-    studentContainer.classList.remove("right-panel-active");
-  });
+// Login signup Transitions---------------------------------------------
+$('#studentSignUp').click(function () {
+  $("#studentContainer").addClass("right-panel-active");
 });
 
-$('.popup').click(function () {
-  const facultySignUp = document.getElementById('facultySignUp');
-  const facultySignIn = document.getElementById('facultySignIn');
-  const facultyContainer = document.getElementById('facultyContainer');
-
-  facultySignUp.addEventListener('click', () => {
-    facultyContainer.classList.add("right-panel-active");
-  });
-
-  facultySignIn.addEventListener('click', () => {
-    facultyContainer.classList.remove("right-panel-active");
-  });
+$('#studentSignIn').click(function () {
+  $("#studentContainer").removeClass("right-panel-active");
 });
 
+$('#facultySignUp').click(function () {
+  $("#facultyContainer").addClass("right-panel-active");
+});
+
+$('#facultySignIn').click(function () {
+  $("#facultyContainer").removeClass("right-panel-active");
+});
 
 // ----------------------------------------------------
 (function () {

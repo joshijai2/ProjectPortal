@@ -4,7 +4,7 @@ function preloadFunc() {
         window.open("./", "_self");
     }
     //Is their authentication token still valid?
-    else if (Date.now > new Date(sessionStorage.getItem('AuthenticationExpires'))) {
+    else if (Date.now() > new Date(sessionStorage.getItem('AuthenticationExpires'))) {
         window.open("./", "_self");
     }
     else {
