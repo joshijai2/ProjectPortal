@@ -151,7 +151,7 @@ $("#editPrj").on("click", function () {
     let i = sessionStorage.getItem("editIndex");
     let projects = JSON.parse(sessionStorage.getItem("projects"));
 
-    xhr.open("PATCH", "https://projenarator.herokuapp.com/projects/new/" + projects[i]["uuid"]);
+    xhr.open("PATCH", "https://projenarator.herokuapp.com/projects/new/" + projects[i]["uuid"]+"/");
 
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Authorization", sessionStorage.getItem("Token"));
