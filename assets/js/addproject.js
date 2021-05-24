@@ -1,8 +1,9 @@
 function isEdit() {
+    console.log("Edit Mode");
     if (sessionStorage.getItem("isEdit") == 1 && sessionStorage.getItem("editIndex") != null) {
-        $("#add").innerHTML = "Edit My Project";
-        $("#addPrj").innerHTML = "Edit Project";
-        $("addPrj").attr("id", "editPrj");
+        $("#add").html("Edit My Project");
+        $("#addPrj").html("Edit Project");
+        $("#addPrj").attr("id", "editPrj");
 
         let i = sessionStorage.getItem("editIndex");
         let data = JSON.parse(sessionStorage.getItem("projects"));
@@ -50,7 +51,7 @@ function retrieveData() {
     let regno = /^[0-9]{2}[A-Z]{3}[0-9]{4}$/;
     let letters = /^[A-Za-z ]+$/;
     let course_code = /^[A-Za-z]{3}[0-9]{4}$/;
-    let duration = /^[0-9]+$/;
+    
 
     let flag = 0
 
@@ -89,11 +90,6 @@ function retrieveData() {
 
     if (!letters.test(data['course_name'])) {
         error += ">> Course Name should not contain any special characters or Numbers!\n";
-        flag = 1;
-    }
-
-    if (!duration.test(data['duration'])) {
-        error += ">> Duration should contain numbers (in months)!\n";
         flag = 1;
     }
 
@@ -143,17 +139,19 @@ $("#editPrj").on("click", function () {
 
             if (this.status >= 200 && this.status < 400) {
                 // The request has been completed successfully
-                sessionStorage.setItem("isEdit", 1);
+                sessionStorage.setItem("isEdit", 0);
                 let data = JSON.parse(this.responseText)
                 window.location.replace('dashboard.html');
             } else {
-                alert("Error in adding project");
+                alert("Error in editing project");
             }
         }
     });
 
-    let uuid = sessionStorage.getItem("editUuid");
-    xhr.open("PATCH", "https://projenarator.herokuapp.com/projects/new/" + uuid);
+    let i = sessionStorage.getItem("editIndex");
+    let projects = JSON.parse(sessionStorage.getItem("projects"));
+
+    xhr.open("PATCH", "https://projenarator.herokuapp.com/projects/new/" + projects[i]["uuid"]);
 
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Authorization", sessionStorage.getItem("Token"));
