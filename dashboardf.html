@@ -29,6 +29,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="assets/js/logout.js"></script>
+  <script src="assets/js/dashboard.js"></script>
 </head>
 
 <body>
@@ -39,6 +40,20 @@
       <a href="./" class="logo d-flex align-items-center">
         <img src="assets/img/favicon.png" alt="Logo">
       </a>
+
+      <div id="welcome">
+        <script>
+
+          $("#welcome").empty().append(
+            "Welcome "
+            + sessionStorage.getItem("name")
+            + " "
+            + sessionStorage.getItem("uid")
+          );
+
+        </script>
+      </div>
+
       <nav id="navbar" class="navbar">
         <ul>
           <li><a id="add" class="btn btn-nav" href="addproject.html">Add new project</a></li>
@@ -56,6 +71,7 @@
     <header class="section-header" style="padding: 5%;">
       <p>WELCOME FACULTY</p>
     </header>
+
     <div class="container align-items-center">
       <div class="row">
         <div class="d-flex flex-column justify-content-center">
@@ -65,9 +81,7 @@
               placeholder="Search" aria-label="Search">
             <br>
             <div class="d-flex justify-content-center">
-
               <button type="button" class="btn-card">Search</button>
-
             </div>
           </form>
 
@@ -75,6 +89,13 @@
       </div>
     </div>
 
+    <div id="projects" class="container align-items-center">
+
+    </div>
+    
+    <div id="pageno" class="container justify-content-center d-flex">
+
+    </div>
   </section>
   <!-- End Home-top -->
 

@@ -9,6 +9,15 @@ function preloadFunc() {
     }
     else {
         //The user is authenticated and the authentication has not expired.
+        let ac_type = sessionStorage.getItem("ac_type");
+        let curr_loc = window.location.href.split("/");
+        if(ac_type=="Student" && curr_loc=="dashboardf.html"){
+            window.open("dashboard.html", "_self");
+        }
+        if(ac_type=="Faculty" && curr_loc=="dashboard.html"){
+            window.open("dashboardf.html", "_self");
+        }
+
     }
 };
 window.onpaint = preloadFunc();

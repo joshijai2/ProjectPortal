@@ -57,7 +57,7 @@ $("#facSignupBtn").on("click", function () {
                 //This authentication key will expire in 1 hour.
                 sessionStorage.setItem("AuthenticationExpires", new Date().addHours(1));
 
-                window.location.replace('dashboard.html')
+                window.location.replace('dashboardf.html')
             } else {
                 try {
                     var data = JSON.parse(this.responseText);
@@ -127,7 +127,7 @@ $("#facSigninBtn").on("click", function () {
                     //This authentication key will expire in 1 hour.
                     sessionStorage.setItem("AuthenticationExpires", new Date().addHours(1));
 
-                    window.location.replace('dashboard.html')
+                    window.location.replace('dashboardf.html')
                 }
                 else {
                     alert("The account does not belong to Faculty! Try student login.")
@@ -147,7 +147,7 @@ $("#facSigninBtn").on("click", function () {
     xhr.open("POST", "https://projenarator.herokuapp.com/login/");
     xhr.setRequestHeader("Content-Type", "application/json");
 
-    xhr.sendJSON.stringify((data));
+    xhr.send(JSON.stringify(data));
 });
 
 // Student Signup
