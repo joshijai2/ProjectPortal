@@ -1,30 +1,26 @@
 function isEdit() {
-    if (sessionStorage.getItem("isEdit") == 1 && sessionStorage.getItem("editUuid") != null) {
+    if (sessionStorage.getItem("isEdit") == 1 && sessionStorage.getItem("editIndex") != null) {
         $("#add").innerHTML = "Edit My Project";
         $("#addPrj").innerHTML = "Edit Project";
-        $("addPrj").attr("id") = "editPrj";
+        $("addPrj").attr("id", "editPrj");
 
-        let uuid = sessionStorage.getItem("editUuid");
-        let data = sessionStorage.getItem("projects");
-        for (let i in data) {
-            if (data[i]["uuid"] == uuid) {
+        let i = sessionStorage.getItem("editIndex");
+        let data = JSON.parse(sessionStorage.getItem("projects"));
+        let authors = JSON.parse(JSON.parse(data[i]["author"]));
 
-                document.addnew.title.value = data[i]["title"];
-                document.addnew.sdate.value = data[i]["start_date"];
-                document.addnew.edate.value = data[i]["end_date"];
-                document.addnew.link.value = data[i]["link"];
-                document.addnew.sname.value = data[i]["author"]["name"];
-                document.addnew.regno.value = data[i]["author"]["regno"];
-                document.addnew.faculty.value = data[i].faculty;
-                document.addnew.fid.value = data[i].facultyId;
-                document.addnew.ccode.value = data[i].course_code;
-                document.addnew.cname.value = data[i].course_name;
-                document.addnew.duration.value = data[i].duration;
-                document.addnew.desc.value = data[i].description;
-                document.addnew.domain.value = data[i].domain;
-            }
-        }
-
+        document.addnew.title.value = data[i]["title"];
+        document.addnew.sdate.value = data[i]["start_date"];
+        document.addnew.edate.value = data[i]["end_date"];
+        document.addnew.link.value = data[i]["link"];
+        document.addnew.sname.value = authors["name"];
+        document.addnew.regno.value = authors["regno"];
+        document.addnew.faculty.value = data[i].faculty;
+        document.addnew.fid.value = data[i].facultyId;
+        document.addnew.ccode.value = data[i].course_code;
+        document.addnew.cname.value = data[i].course_name;
+        document.addnew.duration.value = data[i].duration;
+        document.addnew.desc.value = data[i].description;
+        document.addnew.domain.value = data[i].domain;
     }
 }
 window.onpaint = isEdit();
@@ -37,7 +33,7 @@ function retrieveData() {
         "start_date": document.addnew.sdate.value,
         "end_date": document.addnew.edate.value,
         "link": document.addnew.link.value,
-        "author": '{ "name": "'+document.addnew.sname.value+'", "regno": "'+document.addnew.regno.value+'"}',
+        "author": '{ "name": "' + document.addnew.sname.value + '", "regno": "' + document.addnew.regno.value + '"}',
         "faculty": document.addnew.faculty.value,
         "facultyId": document.addnew.fid.value,
         "course_code": document.addnew.ccode.value,
@@ -138,7 +134,6 @@ $("#addPrj").on("click", function () {
 
 $("#editPrj").on("click", function () {
     let data = retrieveData();
-
     var xhr = new XMLHttpRequest();
 
     xhr.addEventListener("readystatechange", function () {
@@ -148,16 +143,20 @@ $("#editPrj").on("click", function () {
 
             if (this.status >= 200 && this.status < 400) {
                 // The request has been completed successfully
-                var data = JSON.parse(this.responseText)
+                sessionStorage.setItem("isEdit", 1);
+                let data = JSON.parse(this.responseText)
                 window.location.replace('dashboard.html');
             } else {
                 alert("Error in adding project");
             }
         }
     });
+
     let uuid = sessionStorage.getItem("editUuid");
     xhr.open("PATCH", "https://projenarator.herokuapp.com/projects/new/" + uuid);
+
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Authorization", sessionStorage.getItem("Token"));
+
     xhr.send(JSON.stringify(data));
 });

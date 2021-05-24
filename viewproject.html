@@ -9,7 +9,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- <script src="assets/js/check_auth.js"></script> -->
+  <script src="assets/js/check_auth.js"></script>
 
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -64,12 +64,14 @@
 
       <table class="table table-responsive">
         <tbody>
+
           <tr>
             <th scope="col">PROJECT TITLE</th>
             <td id="title"></td>
             <th scope="col">TEAM DETAILS </th>
             <td id="snames"></td>
           </tr>
+
           <tr>
             <th scope="col">DOMAIN</th>
             <td id="domain"></td>
@@ -83,18 +85,21 @@
             <th scope="col">END DATE</th>
             <td id="edate"></td>
           </tr>
+
           <tr>
             <th scope="col">FACULTY NAME</th>
             <td id="fname"></td>
             <th scope="col">FACULTY ID</th>
             <td id="fid"></td>
           </tr>
+
           <tr>
             <th scope="col">COURSE CODE</th>
             <td id="ccode"></td>
             <th scope="col">COURSE NAME</th>
             <td id="cname"></td>
           </tr>
+
           <tr>
             <th scope="col">LINK</th>
             <td id="link"></td>
@@ -107,11 +112,20 @@
             <td id="desc"></td>
             <td>
               <class class="form-group row">
-                <button id="editPrj" type="button" class="btn btn-primary" style="background-color: blue;">Edit
-                  Project</button>
+                <button id="editPrj" class="btn btn-primary" style="background-color: blue;">
+                  Edit Project</button>
               </class>
+              <script>
+                $("#editPrj").on("click", function () {
+                  let index = sessionStorage.getItem("viewIndex");
+                  sessionStorage.setItem("isEdit", 1);
+                  sessionStorage.setItem("editIndex", index);
+                  window.open("addproject.html", "_self");
+                });
+              </script>
             </td>
           </tr>
+
         </tbody>
       </table>
 
@@ -138,7 +152,6 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
 </body>
 
 </html>

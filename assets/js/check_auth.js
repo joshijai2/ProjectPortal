@@ -14,7 +14,7 @@ function preloadFunc() {
         if(ac_type=="Student" && curr_loc=="dashboardf.html"){
             window.open("dashboard.html", "_self");
         }
-        if(ac_type=="Faculty" && curr_loc=="dashboard.html"){
+        if(ac_type=="Faculty" && (curr_loc=="dashboard.html"||curr_loc=="addproject.html")){
             window.open("dashboardf.html", "_self");
         }
 
