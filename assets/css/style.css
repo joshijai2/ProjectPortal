@@ -30,7 +30,7 @@ h6 {
 	font-family: "Nunito", sans-serif;
 }
 
-li{
+li {
 	list-style-type: none;
 }
 
@@ -259,14 +259,6 @@ section {
 	margin-left: 30px;
 	border-radius: 4px;
 	color: #fff !important;
-}
-
-.card-body .btn-card {
-	position: absolute;
-	bottom: 10px;
-	margin: 0 auto;
-	left: 50%;
-	transform: translateX(-50%);
 }
 
 .navbar .btn-nav:hover,
@@ -1330,25 +1322,77 @@ custom css
 .bg-card {
 	background: #d0d4fc;
 	border-width: 0;
-	box-shadow: 0 0 2px 2.5px #d0d4fc;
+	box-shadow: 0 0 1px 1.25px #d0d4fc;
 }
 
 .card-body {
 	min-height: 250px;
 }
 
-.page-item{
+.card-body .btn-card {
+	margin: auto;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	width: 144px;
+}
+
+.card-body .bi-pencil-square {
+	background: #4154f1;
+	padding: 8px 20px;
+	border-radius: 4px;
+	color: #fff;
+	position: absolute;
+	bottom: 10px;
+	left: 70px;
+}
+
+.card-body .bi-pencil-square:hover {
+	color: #00f;
+	background: #5969f3;
+}
+
+.card-body .bi-trash {
+	background: #4154f1;
+	padding: 8px 20px;
+	border-radius: 4px;
+	color: #fff;
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+}
+
+.card-body .bi-trash:hover {
+	color: #f00;
+	background: #5969f3;
+}
+
+.page-item {
 	padding: 0 5px;
 	cursor: pointer;
 }
 
-.center{
+.center {
 	position: absolute;
 	margin: 0 auto;
 	left: 50%;
 	transform: translateX(-50%);
 }
 
-.disabled{
+.disabled {
 	cursor: default;
+}
+
+td{
+	min-width: 250px;
+}
+
+#btns{
+	min-width: 300px;
+	padding: 20px 25px;
+}
+
+#editPrj, #delPrj{
+	width: 45%;
+	margin: auto 2%;
 }

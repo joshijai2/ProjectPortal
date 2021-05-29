@@ -51,7 +51,7 @@ function retrieveData() {
     let regno = /^[0-9]{2}[A-Z]{3}[0-9]{4}$/;
     let letters = /^[A-Za-z ]+$/;
     let course_code = /^[A-Za-z]{3}[0-9]{4}$/;
-    
+
 
     let flag = 0
 
@@ -101,6 +101,7 @@ function retrieveData() {
 }
 
 $("#addPrj").on("click", function () {
+    sessionStorage.setItem("isEdit", 0);
     sessionStorage.setItem("isProjectAdded", 0);
     let data = retrieveData();
     var xhr = new XMLHttpRequest();
@@ -140,7 +141,7 @@ $("#editPrj").on("click", function () {
             if (this.status >= 200 && this.status < 400) {
                 // The request has been completed successfully
                 sessionStorage.setItem("isEdit", 0);
-                let data = JSON.parse(this.responseText)
+                // let data = JSON.parse(this.responseText)
                 window.location.replace('dashboard.html');
             } else {
                 alert("Error in editing project");
@@ -151,7 +152,7 @@ $("#editPrj").on("click", function () {
     let i = sessionStorage.getItem("editIndex");
     let projects = JSON.parse(sessionStorage.getItem("projects"));
 
-    xhr.open("PATCH", "https://projenarator.herokuapp.com/projects/new/" + projects[i]["uuid"]+"/");
+    xhr.open("PATCH", "https://projenarator.herokuapp.com/projects/new/" + projects[i]["uuid"] + "/");
 
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Authorization", sessionStorage.getItem("Token"));

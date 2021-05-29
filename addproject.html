@@ -57,7 +57,7 @@
 
   <!-- ======= main-section Section ======= -->
   <section id="main-section" class="main-section align-items-center">
-    <header class="section-header"> 
+    <header class="section-header">
       <p id="add">Add new Project</p>
     </header>
     <div class="container align-items-center">
@@ -177,8 +177,9 @@
 
             <li>
               <div class="offset col-8">
-                <button id="addPrj" type="button" class="btn btn-primary" style="background-color: blue;">Add
+                <button id="addPrj" class="btn btn-card btn-primary" style="background-color: blue;">Add
                   Project!</button>
+                <button class="btn btn-card" onclick="goBack()">Go Back</button>
               </div>
             </li>
 
@@ -190,10 +191,11 @@
 
   </section>
   <!-- End main-section -->
-
-  </main>
-  <!-- End #main -->
-
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
   <!-- ======= Footer ======= -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i

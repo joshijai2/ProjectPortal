@@ -64,7 +64,6 @@
 
       <table class="table table-responsive">
         <tbody>
-
           <tr>
             <th scope="col">PROJECT TITLE</th>
             <td id="title"></td>
@@ -110,19 +109,13 @@
 
             <th scope="col">DESCRIPTION</th>
             <td id="desc"></td>
-            <td>
-              <class class="form-group row">
+            <td class="form-group row">
+              <span id="btns">
                 <button id="editPrj" class="btn btn-primary" style="background-color: blue;">
                   Edit Project</button>
-              </class>
-              <script>
-                $("#editPrj").on("click", function () {
-                  let index = sessionStorage.getItem("viewIndex");
-                  sessionStorage.setItem("isEdit", 1);
-                  sessionStorage.setItem("editIndex", index);
-                  window.open("addproject.html", "_self");
-                });
-              </script>
+                <button id="delPrj" class="btn btn-primary" style="background-color: red;">
+                  Delete</button>
+              </span>
             </td>
           </tr>
 
@@ -130,9 +123,6 @@
       </table>
 
     </div>
-    <script>
-      viewProject();
-    </script>
   </section>
   <!-- End main-section -->
 
