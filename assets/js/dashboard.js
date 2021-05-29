@@ -58,8 +58,25 @@ function display(projects, page = 1) {
   $('#projects').empty();
   $('#projects').append('<div id="proRow" class="row"></div>');
   for (let i = start_index; i < end_index; i++) {
-    $('#proRow').append(
-      `
+    let ac_type = sessionStorage.getItem("ac_type");
+    if (ac_type == "Faculty")
+      $('#proRow').append(
+        `
+        <div class="col col-lg-4 d-flex flex-column fade-in">
+          <div id="` + i + `" class="card bg-card" onclick="viewProject(` + projects[i]["uuid"] + `)" style="width: 18rem;">
+            <div class="card-body">
+              <h4 class="card-title">`+ projects[i]["title"] + `</h4>
+              <h5 class="card-text">`+ projects[i]["domain"] + `</h5>
+              <h5 class="card-text">`+ projects[i]["faculty"] + `</h5>
+              <a class="btn btn-card center" onclick="viewProject('` + i + `');">View Project</a>
+            </div>
+          </div>
+        </div>
+        `
+      );
+    else
+      $('#proRow').append(
+        `
         <div class="col col-lg-4 d-flex flex-column fade-in">
           <div id="` + i + `" class="card bg-card" onclick="viewProject(` + projects[i]["uuid"] + `)" style="width: 18rem;">
             <div class="card-body">
@@ -73,7 +90,7 @@ function display(projects, page = 1) {
           </div>
         </div>
         `
-    );
+      );
   }
 
   let pages = Math.ceil(n / 6);
