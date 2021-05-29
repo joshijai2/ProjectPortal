@@ -1,9 +1,9 @@
 $(document).ready(function () {
     let ac_type = sessionStorage.getItem("ac_type");
-    if(ac_type=="Faculty")
+    if(ac_type=="Faculty"){
         $("#btns").empty();
         $("#add").attr("href", "dashboardf.html");
-    
+    }
     let index = sessionStorage.getItem("viewIndex");
     let projects = JSON.parse(sessionStorage.getItem("projects"));
     let authors = JSON.parse(JSON.parse(projects[index]["author"]));
