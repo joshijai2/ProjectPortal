@@ -28,13 +28,19 @@ window.onpaint = isEdit();
 
 
 function retrieveData() {
-
+    let author = ""
+    if (sessionStorage.getItem("isEdit")==1){
+        author = "\"{ \\\"name\\\": \\\"" + document.addnew.sname.value + "\\\", \\\"regno\\\": \\\"" + document.addnew.regno.value + "\\\"}\""
+    }
+    else{
+        author = "{\"name\" : \""+ document.addnew.sname.value +"\",\"regno\" : \"" + document.addnew.regno.value + "\"}"
+    }
     var data = {
         "title": document.addnew.title.value,
         "start_date": document.addnew.sdate.value,
         "end_date": document.addnew.edate.value,
         "link": document.addnew.link.value,
-        "author": "{ \\\"name\\\": \\\"' + document.addnew.sname.value + '\\\", \\\"regno\\\": \\\"' + document.addnew.regno.value + '\\\"}",
+        "author": author,
         "faculty": document.addnew.faculty.value,
         "facultyId": document.addnew.fid.value,
         "course_code": document.addnew.ccode.value,
