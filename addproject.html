@@ -193,7 +193,8 @@
   <!-- End main-section -->
   <script>
     function goBack() {
-      window.history.back();
+      sessionStorage.setItem("isEdit", 0);
+      window.history.go(-1); return false;
     }
   </script>
   <!-- ======= Footer ======= -->
