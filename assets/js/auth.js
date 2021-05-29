@@ -27,7 +27,7 @@ $("#facSignupBtn").on("click", function () {
         flag = 1;
     }
     if (!password.test(data['password'])) {
-        error += ">> Password must be of atleast length 8!\n";
+        error += ">> Please enter correct password!\n";
         flag = 1;
     }
     if (flag) {
@@ -97,7 +97,7 @@ $("#facSigninBtn").on("click", function () {
         flag = 1;
     }
     if (!password.test(data['password'])) {
-        error += ">> Password must be of atleast length 8!\n";
+        error += ">> Please enter correct password!\n";
         flag = 1;
     }
     if (flag) {
@@ -176,7 +176,7 @@ $("#stuSignupBtn").on("click", function () {
         flag = 1;
     }
     if (!password.test(data['password'])) {
-        error += ">> Password must be of atleast length 8!\n";
+        error += ">> Please enter correct password!\n";
         flag = 1;
     }
     if (flag) {
@@ -246,7 +246,7 @@ $("#stuSigninBtn").on("click", function () {
         flag = 1;
     }
     if (!password.test(data['password'])) {
-        error += ">> Password must be of atleast length 8!\n";
+        error += ">> Please enter correct password!\n";
         flag = 1;
     }
     if (flag) {
