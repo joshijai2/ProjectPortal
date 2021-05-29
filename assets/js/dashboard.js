@@ -49,6 +49,21 @@ function viewProject(index) {
 }
 
 function display(projects, page = 1) {
+  if (sessionStorage.getItem("isSearch") == 1) {
+    $("#backBtn").empty().append(`
+    <button id="search" type="submit" class="btn btn-card">
+    <i class="bi bi-arrow-left" onclick="goBack()"></i></button>
+        <script>
+        function goBack() {
+          sessionStorage.setItem("isSearch", 0);
+          window.open("dashboardf.html", "_self");
+        }
+        </script>`)
+  }
+  else{
+    $("#backBtn").empty();
+  }
+
   sessionStorage.setItem("page", page);
 
   let n = projects.length;
@@ -120,22 +135,21 @@ function showPageNav(pages, page = 1) {
   $("#pageno").empty();
 
   if (pages > 1) {
+    let pg = "";
+    for (let i = 1; i <= pages; i++) {
+      pg += `<li class="page-item">
+      <a class="page-link" onclick="display(JSON.parse(sessionStorage.getItem('projects')),` + i + `)">`
+        + i
+        + `</a>
+      </li>`
+    }
+
     $("#pageno").append(`
     <nav aria-label="...">
       <ul class="pagination">
         <li id="prevPage" class="page-item">
           <a class="page-link" >Previous</a>
-        </li>`)
-
-    for (let i = 1; i <= pages; i++) {
-      $("#pageno").append(`<li class="page-item">
-      <a class="page-link" onclick="display(JSON.parse(sessionStorage.getItem('projects')),` + i + `)">`
-        + i
-        + `</a>
-      </li>`)
-    }
-
-    $("#pageno").append(`
+        </li>`+pg+`
       <li id="nextPage" class="page-item">
           <a class="page-link">Next</a>
         </li>
@@ -150,6 +164,7 @@ function showPageNav(pages, page = 1) {
 
 
 function loadProjects() {
+  sessionStorage.setItem("isSearch", 0);
   var xhr = new XMLHttpRequest();
   xhr.withCredentials = true;
 
@@ -186,3 +201,44 @@ function loadProjects() {
 };
 
 window.onpaint = loadProjects();
+
+$(document).ready(function () {
+  $("#search").on("click", function () {
+    let regno = $("#searchBar").val().toUpperCase();
+    console.log(regno);
+
+    let uid = /^[0-9]{2}[A-Za-z]{3}[0-9]{4}$/;
+
+    if (!uid.test(regno))
+      return alert(">> Enter correct format of Reg No.!\n");
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === 4) {
+        console.log('this.responseText :>> ', this.responseText);
+        console.log('this.status :>> ', this.status);
+
+        if (this.status >= 200 && this.status < 400) {
+          // The request has been completed successfully
+          var data = JSON.parse(this.responseText);
+          sessionStorage.setItem("projects", JSON.stringify(data));
+          sessionStorage.setItem("page", 1);
+          sessionStorage.setItem("isSearch", 1);
+          let n = data.length;
+
+          display(data);
+        } else {
+          alert("Error in loading projects! Please search again.");
+        }
+      }
+    });
+
+    xhr.open("GET", "https://projenarator.herokuapp.com/projects/view/?regno=" + regno);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Authorization", sessionStorage.getItem("Token"));
+
+    xhr.send();
+  });
+});
