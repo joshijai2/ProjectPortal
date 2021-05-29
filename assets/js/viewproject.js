@@ -18,7 +18,7 @@ $(document).ready(function () {
     $("#ccode").empty().append(projects[index]["course_code"]);
     $("#cname").empty().append(projects[index]["course_name"]);
     $("#domain").empty().append(projects[index]["domain"]);
-    $("#duration").empty().append(projects[index]["duration"]);
+    $("#duration").empty().append(projects[index]["duration"]+" months");
     $("#desc").empty().append(projects[index]["description"]);
 });
 
