@@ -58,7 +58,7 @@
   <!-- ======= main-section ======= -->
   <section id="main-section" class="main-section align-items-center fade-in">
     <header class="section-header">
-      <p>My Project</p>
+      <p>Project Details</p>
     </header>
     <div class="container align-items-center">
 
@@ -106,26 +106,31 @@
             <td id="duration"></td>
           </tr>
           <tr>
-
             <th scope="col">DESCRIPTION</th>
             <td id="desc"></td>
-            <td class="form-group row">
-              <span id="btns">
-                <button type="button" id="editPrj" class="btn btn-primary" style="background-color: blue;">
-                  Edit Project</button>
-                <button type="button" id="delPrj" class="btn btn-primary" style="background-color: red;">
-                  Delete</button>
-              </span>
+            <td id="btn1">
+              <button type="button" id="editPrj" class="btn btn-card" style="background-color: blue;">
+                Edit Project
+              </button>
+            </td>
+            <td id="btn2">
+              <button type="button" id="delPrj" class="btn btn-card" style="background-color: red;">
+                Delete
+              </button>
             </td>
           </tr>
 
         </tbody>
       </table>
-
+      <button type="button" class="btn btn-card center" onclick="goBack()">Go Back</button>
     </div>
   </section>
   <!-- End main-section -->
-
+  <script>
+    function goBack() {
+      window.open("dashboardf.html", "_self");
+    }
+    </script>
   <!-- ======= Footer ======= -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i

@@ -49,10 +49,13 @@ function viewProject(index) {
 }
 
 function display(projects, page = 1) {
-  if (sessionStorage.getItem("isSearch") == 1) {
+  if ((sessionStorage.getItem("ac_type") == "Faculty") && (sessionStorage.getItem("isSearch") == 1)) {
+    reg = $("#searchBar").val();
+    $("#stuName").empty().append("<h1 style='margin: 0; font-size: 28px'>Registration number: "+reg+"</h1>");
+    $("#stuName").attr("style","display: block;");
     $("#backBtn").empty().append(`
-    <button id="search" type="submit" class="btn btn-card">
-    <i class="bi bi-arrow-left" onclick="goBack()"></i></button>
+    <button id="search" type="submit" onclick="goBack()" class="btn btn-card">
+    <i class="bi bi-arrow-left"></i></button>
         <script>
         function goBack() {
           sessionStorage.setItem("isSearch", 0);
@@ -60,8 +63,10 @@ function display(projects, page = 1) {
         }
         </script>`)
   }
-  else{
+  else {
     $("#backBtn").empty();
+    $("#stuName").empty();
+    $("#stuName").attr("style","display: none;");
   }
 
   sessionStorage.setItem("page", page);
@@ -78,7 +83,7 @@ function display(projects, page = 1) {
       $('#proRow').append(
         `
         <div class="col col-lg-4 d-flex flex-column fade-in">
-          <div id="` + i + `" class="card bg-card" onclick="viewProject(` + projects[i]["uuid"] + `)" style="width: 18rem;">
+          <div class="card bg-card" onclick="viewProject(` + projects[i]["uuid"] + `)">
             <div class="card-body">
               <h4 class="card-title">`+ projects[i]["title"] + `</h4>
               <h5 class="card-text">`+ projects[i]["domain"] + `</h5>
@@ -93,14 +98,16 @@ function display(projects, page = 1) {
       $('#proRow').append(
         `
         <div class="col col-lg-4 d-flex flex-column fade-in">
-          <div id="` + i + `" class="card bg-card" onclick="viewProject(` + projects[i]["uuid"] + `)" style="width: 18rem;">
+          <div class="card bg-card" onclick="viewProject(` + projects[i]["uuid"] + `)">
             <div class="card-body">
               <h4 class="card-title">`+ projects[i]["title"] + `</h4>
               <h5 class="card-text">`+ projects[i]["domain"] + `</h5>
               <h5 class="card-text">`+ projects[i]["faculty"] + `</h5>
               <i class="bi bi-trash btn" onclick="deleteProject(` + i + `)"></i>
               <i class="bi bi-pencil-square btn" onclick="editProject(` + i + `)"></i>
-              <a class="btn btn-card" onclick="viewProject('` + i + `');">View Project</a>
+              <a class="btn btn-card" onclick="viewProject('` + i + `');">
+                View Project
+              </a>
             </div>
           </div>
         </div>
@@ -149,7 +156,7 @@ function showPageNav(pages, page = 1) {
       <ul class="pagination">
         <li id="prevPage" class="page-item">
           <a class="page-link" >Previous</a>
-        </li>`+pg+`
+        </li>`+ pg + `
       <li id="nextPage" class="page-item">
           <a class="page-link">Next</a>
         </li>
@@ -223,11 +230,13 @@ $(document).ready(function () {
         if (this.status >= 200 && this.status < 400) {
           // The request has been completed successfully
           var data = JSON.parse(this.responseText);
+          $("#searchBar").val(regno);
+          
           sessionStorage.setItem("projects", JSON.stringify(data));
           sessionStorage.setItem("page", 1);
           sessionStorage.setItem("isSearch", 1);
+          
           let n = data.length;
-
           display(data);
         } else {
           alert("Error in loading projects! Please search again.");

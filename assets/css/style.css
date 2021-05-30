@@ -34,6 +34,11 @@ li {
 	list-style-type: none;
 }
 
+.table td,
+.table th {
+	border-width: 0;
+}
+
 /*--------------------------------------------------------------
 # Sections
 --------------------------------------------------------------*/
@@ -1325,7 +1330,7 @@ custom css
 	box-shadow: 0 0 1px 1.25px #d0d4fc;
 }
 
-.card-body {
+#projects .card-body {
 	min-height: 250px;
 }
 
@@ -1334,7 +1339,6 @@ custom css
 	position: absolute;
 	bottom: 10px;
 	right: 10px;
-	width: 144px;
 }
 
 .card-body .bi-pencil-square {
@@ -1373,7 +1377,7 @@ custom css
 }
 
 .center {
-	position: absolute;
+	position: relative;
 	margin: 0 auto;
 	left: 50%;
 	transform: translateX(-50%);
@@ -1383,16 +1387,26 @@ custom css
 	cursor: default;
 }
 
-td{
-	min-width: 250px;
+th {
+	min-width: 140px;
 }
 
-#btns{
-	min-width: 300px;
-	padding: 20px 25px;
+td {
+	min-width: 275px;
 }
 
-#editPrj, #delPrj{
-	width: 45%;
-	margin: auto 2%;
+#editPrj,
+#delPrj {
+	min-width: 150px;
+	margin: auto;
+}
+
+#stuName, #projects {
+	text-align: center;
+	padding-bottom: 0;
+	padding-top: 0.5rem;
+}
+
+#projects .col{
+	padding-bottom: 2%;
 }

@@ -1,7 +1,8 @@
 $(document).ready(function () {
     let ac_type = sessionStorage.getItem("ac_type");
     if(ac_type=="Faculty"){
-        $("#btns").empty();
+        $("#btn1").remove();
+        $("#btn2").remove();
         $("#add").attr("href", "dashboardf.html");
     }
     let index = sessionStorage.getItem("viewIndex");
