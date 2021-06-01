@@ -10,13 +10,17 @@ function preloadFunc() {
         window.open("./", "_self");
     }
     else {
-        //The user is authenticated and the authentication has not expired.
+        console.log("The user is authenticated and the authentication has not expired.");
+
         let ac_type = sessionStorage.getItem("ac_type");
         let curr_loc = window.location.href.split("/");
-        if (ac_type == "Student" && curr_loc == "dashboardf.html") {
+        console.log('curr_loc[curr_loc.length-1] :>> ', curr_loc[curr_loc.length-1]);
+        if (ac_type == "Student" &&
+            curr_loc[curr_loc.length-1] == "dashboardf.html") {
             window.open("dashboard.html", "_self");
         }
-        if (ac_type == "Faculty" && (curr_loc == "dashboard.html" || curr_loc == "addproject.html")) {
+        if (ac_type == "Faculty" &&
+            (curr_loc[curr_loc.length-1] == "dashboard.html" || curr_loc[curr_loc.length-1] == "addproject.html")) {
             window.open("dashboardf.html", "_self");
         }
 

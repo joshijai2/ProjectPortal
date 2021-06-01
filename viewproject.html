@@ -128,7 +128,10 @@
   <!-- End main-section -->
   <script>
     function goBack() {
-      window.open("dashboardf.html", "_self");
+      if(sessionStorage.getItem("ac_type")=="Student")
+        window.open("dashboard.html", "_self");
+      else
+        window.open("dashboardf.html", "_self");
     }
     </script>
   <!-- ======= Footer ======= -->
