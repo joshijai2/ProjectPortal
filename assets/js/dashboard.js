@@ -51,8 +51,8 @@ function viewProject(index) {
 function display(projects, page = 1) {
   if ((sessionStorage.getItem("ac_type") == "Faculty") && (sessionStorage.getItem("isSearch") == 1)) {
     reg = $("#searchBar").val();
-    $("#stuName").empty().append("<h1 style='margin: 0; font-size: 28px'>Registration number: "+reg+"</h1>");
-    $("#stuName").attr("style","display: block;");
+    $("#stuName").empty().append("<h1 style='margin: 0; font-size: 28px'>Registration number: " + reg + "</h1>");
+    $("#stuName").attr("style", "display: block;");
     $("#backBtn").empty().append(`
     <button id="search" type="submit" onclick="goBack()" class="btn btn-card">
     <i class="bi bi-arrow-left"></i></button>
@@ -66,7 +66,7 @@ function display(projects, page = 1) {
   else {
     $("#backBtn").empty();
     $("#stuName").empty();
-    $("#stuName").attr("style","display: none;");
+    $("#stuName").attr("style", "display: none;");
   }
 
   sessionStorage.setItem("page", page);
@@ -168,8 +168,6 @@ function showPageNav(pages, page = 1) {
 
 }
 
-
-
 function loadProjects() {
   sessionStorage.setItem("isSearch", 0);
   var xhr = new XMLHttpRequest();
@@ -183,6 +181,10 @@ function loadProjects() {
       if (this.status >= 200 && this.status < 400) {
         // The request has been completed successfully
         var data = JSON.parse(this.responseText);
+
+        $("#name").val(sessionStorage.getItem("name"));
+        $("#email").val(sessionStorage.getItem("email"));
+
         sessionStorage.setItem("projects", JSON.stringify(data));
         sessionStorage.setItem("page", 1);
 
@@ -231,11 +233,11 @@ $(document).ready(function () {
           // The request has been completed successfully
           var data = JSON.parse(this.responseText);
           $("#searchBar").val(regno);
-          
+
           sessionStorage.setItem("projects", JSON.stringify(data));
           sessionStorage.setItem("page", 1);
           sessionStorage.setItem("isSearch", 1);
-          
+
           let n = data.length;
           display(data);
         } else {
@@ -250,4 +252,43 @@ $(document).ready(function () {
 
     xhr.send();
   });
+});
+
+$("#sendMsg").on("click", function () {
+  $(".loading").attr("style", "display: block;");
+  $(".error-message").attr("style", "display: none;");
+  $(".sent-message").attr("style", "display: none;");
+
+  var data = {
+    "name": sessionStorage.getItem("name"),
+    "email": sessionStorage.getItem("email"),
+    "subject": $("#subject").val(),
+    "message": $("#message").val(),
+  };
+  console.log(data);
+
+  $("#subject").val("");
+  $("#message").val("");
+
+  var xhr = new XMLHttpRequest();
+
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+      console.log('this.responseText :>> ', this.responseText);
+      console.log('this.status :>> ', this.status);
+      $(".loading").attr("style", "display: none;");
+
+      if (this.status >= 200 && this.status < 400) {
+        // The request has been completed successfully
+        $(".sent-message").attr("style", "display: block;");
+      } else {
+        $(".error-message").attr("style", "display: block;");
+      }
+    }
+  });
+
+  xhr.open("POST", "https://projenarator.herokuapp.com/contact/");
+  xhr.setRequestHeader("Content-Type", "application/json");
+
+  xhr.send(JSON.stringify(data));
 });

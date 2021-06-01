@@ -298,3 +298,44 @@ $("#stuSigninBtn").on("click", function () {
 
     xhr.send(JSON.stringify(data));
 });
+
+$("#sendMsg").on("click", function () {
+    $(".loading").attr("style", "display: block;");
+    $(".error-message").attr("style", "display: none;");
+    $(".sent-message").attr("style", "display: none;");
+
+    var data = {
+        "name": $("#name").val(),
+        "email": $("#email").val(),
+        "subject": $("#subject").val(),
+        "message": $("#message").val(),
+    };
+    console.log(data);
+
+    $("#name").val("")
+    $("#email").val("")
+    $("#subject").val("")
+    $("#message").val("")
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            console.log('this.responseText :>> ', this.responseText);
+            console.log('this.status :>> ', this.status);
+            $(".loading").attr("style", "display: none;");
+
+            if (this.status >= 200 && this.status < 400) {
+                // The request has been completed successfully
+                $(".sent-message").attr("style", "display: block;");
+            } else {
+                $(".error-message").attr("style", "display: block;");
+            }
+        }
+    });
+
+    xhr.open("POST", "https://projenarator.herokuapp.com/contact/");
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.send(JSON.stringify(data));
+});

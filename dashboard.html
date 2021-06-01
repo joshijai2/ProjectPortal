@@ -111,31 +111,31 @@
         </div>
 
         <div class="col-lg-6">
-          <form action="mailto:projectgenerator.com" method="post" enctype="text/plain" class="email-form">
+          <form method="post" name="contact" class="email-form">
             <div class="row gy-4">
 
               <div class="col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Your Name">
+                <input type="text" id="name" class="form-control" placeholder="Your Name">
               </div>
 
               <div class="col-md-6 ">
-                <input type="email" class="form-control" name="email" placeholder="Your Email">
+                <input type="email" class="form-control" id="email" placeholder="Your Email">
               </div>
 
               <div class="col-md-12">
-                <input type="text" class="form-control" name="subject" placeholder="Subject">
+                <input type="text" class="form-control" id="subject" placeholder="Subject">
               </div>
 
               <div class="col-md-12">
-                <textarea class="form-control" name="message" rows="6" placeholder="Message"></textarea>
+                <textarea class="form-control" id="message" rows="6" placeholder="Message"></textarea>
               </div>
 
               <div class="col-md-12 text-center">
                 <div class="loading">Loading</div>
-                <div class="error-message"></div>
+                <div class="error-message">Could not send. Please try again.</div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                <button type="submit">Send Message</button>
+                <button id="sendMsg" type="button">Send Message</button>
               </div>
 
             </div>
