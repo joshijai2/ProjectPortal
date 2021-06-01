@@ -46,7 +46,7 @@ $("#facSignupBtn").on("click", function () {
                 var data = JSON.parse(this.responseText)
 
                 sessionStorage.setItem("Token", "Token " + data.token)
-                sessionStorage.setItem("ac_type", data.ac_type)
+                sessionStorage.setItem("ac_type", "Faculty")
                 sessionStorage.setItem("name", data.name)
                 sessionStorage.setItem("email", data.email)
                 sessionStorage.setItem("uid", data.uid)
@@ -195,7 +195,7 @@ $("#stuSignupBtn").on("click", function () {
                 var data = JSON.parse(this.responseText)
 
                 sessionStorage.setItem("Token", "Token " + data.token)
-                sessionStorage.setItem("ac_type", data.ac_type)
+                sessionStorage.setItem("ac_type", "Student")
                 sessionStorage.setItem("name", data.name)
                 sessionStorage.setItem("email", data.email)
                 sessionStorage.setItem("uid", data.uid)
