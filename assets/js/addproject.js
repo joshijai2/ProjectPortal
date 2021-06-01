@@ -2,7 +2,7 @@ function isEdit() {
     console.log("Edit Mode");
     if (sessionStorage.getItem("isEdit") == 1 && sessionStorage.getItem("editIndex") != null) {
         $("#add").html("Edit My Project");
-        $("#addPrj").html("Edit Project");
+        $("#addPrj").html("Save Project");
         $("#addPrj").attr("id", "editPrj");
 
         let i = sessionStorage.getItem("editIndex");
